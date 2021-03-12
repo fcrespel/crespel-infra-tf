@@ -1,7 +1,15 @@
+# OVH provider
 ovh_endpoint = "ovh-eu"
 #ovh_application_key = "toComplete"
 #ovh_application_secret = "toComplete"
 #ovh_consumer_key = "toComplete"
+
+# GCP provider
+#gcp_credentials = "toComplete"
+gcp_project_id = "crespel-me"
+gcp_region = "europe-west1"
+
+# DNS config
 dns_zone = "crespel.me"
 dns_records = [
   { name = "",                        ttl = 0,     type = "A",      target = "5.39.85.174" },
