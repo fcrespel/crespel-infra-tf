@@ -1,3 +1,8 @@
+// Swift container for Nextcloud
+resource "openstack_objectstorage_container_v1" "os_container_nextcloud" {
+  name = "nextcloud"
+}
+
 // GCS bucket for project files
 resource "google_storage_bucket" "gcs_bucket_project" {
   name                        = var.gcp_project_id
