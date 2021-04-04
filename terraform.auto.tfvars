@@ -51,3 +51,12 @@ dns_records = [
   { name = "vpn",                     ttl = 1800,  type = "CNAME",  target = "vpn.fabinfra.net." },
   { name = "www",                     ttl = 1800,  type = "CNAME",  target = "srv01" },
 ]
+
+# Uptime checks
+uptime_check_urls = [
+  "https://blogs.crespel.me/",
+  "https://cloud.crespel.me/",
+  "https://files.crespel.me/",
+  "https://karaplan.crespel.me/actuator/health",
+  "https://services.crespel.me/",
+]

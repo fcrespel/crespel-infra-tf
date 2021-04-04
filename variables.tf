@@ -59,3 +59,10 @@ variable "dns_records" {
   }))
   description = "DNS records"
 }
+
+// Uptime checks
+variable "uptime_check_urls" {
+  default     = []
+  type        = list(string)
+  description = "Uptime check HTTPS URLs"
+}
