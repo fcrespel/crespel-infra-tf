@@ -1,0 +1,15 @@
+fullnameOverride: redis
+
+podSecurityContext:
+  runAsUser: 1003
+  runAsGroup: 1004
+
+nodeSelector:
+  server-role-web: "true"
+  domain-crespel-me: "true"
+
+volumes:
+  data:
+    hostPath:
+      path: /home/domains/crespel.me/redis
+      type: DirectoryOrCreate

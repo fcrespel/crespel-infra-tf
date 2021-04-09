@@ -16,6 +16,12 @@ os_region = "GRA"
 gcp_project_id = "crespel-me"
 gcp_region = "europe-west1"
 
+# Kubernetes provider
+k8s_host = "https://k8s-master.vpn.fabinfra.net:6443"
+#k8s_client_cert = "toComplete"
+#k8s_client_key = "toComplete"
+#k8s_ca_cert = "toComplete"
+
 # DNS config
 dns_zone = "crespel.me"
 dns_records = [
@@ -51,6 +57,19 @@ dns_records = [
   { name = "vpn",                     ttl = 1800,  type = "CNAME",  target = "vpn.fabinfra.net." },
   { name = "www",                     ttl = 1800,  type = "CNAME",  target = "srv01" },
 ]
+
+# Web
+web_namespace = "domain-crespel-me"
+#web_karaplan_db_username = "toComplete"
+#web_karaplan_db_password = "toComplete"
+#web_karaplan_google_oauth_clientid = "toComplete"
+#web_karaplan_google_oauth_clientsecret = "toComplete"
+#web_karaplan_facebook_oauth_clientid = "toComplete"
+#web_karaplan_facebook_oauth_clientsecret = "toComplete"
+#web_karaplan_github_oauth_clientid = "toComplete"
+#web_karaplan_github_oauth_clientsecret = "toComplete"
+#web_ldap_root_password = "toComplete"
+#web_mailserver_dkim_private_key = "toComplete"
 
 # Uptime checks
 uptime_check_urls = [

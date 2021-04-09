@@ -1,0 +1,31 @@
+fullnameOverride: nexus
+
+podSecurityContext:
+  runAsUser: 1003
+  runAsGroup: 1004
+
+nodeSelector:
+  server-role-web: "true"
+  domain-crespel-me: "true"
+
+ingress:
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 2g
+  hosts:
+    - host: "services.crespel.me"
+      paths:
+        - path: "/nexus"
+    - host: "docker.crespel.me"
+      paths:
+        - path: "/"
+          servicePort: docker
+
+env:
+  NEXUS_CONTEXT: nexus
+
+volumes:
+  data:
+    hostPath:
+      path: /home/domains/crespel.me/nexus
+      type: DirectoryOrCreate

@@ -1,0 +1,18 @@
+fullnameOverride: mysql-slave
+
+image:
+  repository: fcrespel/mariadb-slave
+
+podSecurityContext:
+  runAsUser: 1003
+  runAsGroup: 1004
+
+nodeSelector:
+  server-role-web: "true"
+  domain-crespel-me: "true"
+
+volumes:
+  data:
+    hostPath:
+      path: /home/domains/crespel.me/mysql-slave
+      type: DirectoryOrCreate

@@ -1,0 +1,31 @@
+fullnameOverride: php
+
+podSecurityContext:
+  runAsUser: 1003
+  runAsGroup: 1004
+
+nodeSelector:
+  server-role-web: "true"
+  domain-crespel-me: "true"
+
+env:
+  SERVER_ENV: production
+  APPLICATION_ENV: production
+
+volumes:
+  sessions:
+    hostPath:
+      path: /home/domains/crespel.me/php/sessions
+      type: DirectoryOrCreate
+  logs:
+    hostPath:
+      path: /home/domains/crespel.me/php/logs
+      type: DirectoryOrCreate
+  apps:
+    hostPath:
+      path: /home/domains/crespel.me/apps
+      type: DirectoryOrCreate
+  subdomains:
+    hostPath:
+      path: /home/domains/crespel.me/sd
+      type: DirectoryOrCreate

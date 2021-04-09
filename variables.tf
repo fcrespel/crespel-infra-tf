@@ -45,6 +45,21 @@ variable "gcp_region" {
   description = "GCP region"
 }
 
+// Kubernetes provider
+variable "k8s_host" {
+  description = "Kubernetes master host name"
+}
+variable "k8s_client_cert" {
+  description = "Kubernetes client certificate (base64-encoded PEM)"
+}
+variable "k8s_client_key" {
+  description = "Kubernetes client private key (base64-encoded PEM)"
+  sensitive   = true
+}
+variable "k8s_ca_cert" {
+  description = "Kubernetes cluster CA certificate (base64-encoded PEM)"
+}
+
 // DNS records
 variable "dns_zone" {
   description = "DNS zone name"
@@ -58,6 +73,47 @@ variable "dns_records" {
     target = string
   }))
   description = "DNS records"
+}
+
+// Web
+variable "web_namespace" {
+  description = "Web Kubernetes namespace"
+}
+variable "web_karaplan_db_username" {
+  description = "KaraPlan database user name"
+}
+variable "web_karaplan_db_password" {
+  description = "KaraPlan database user password"
+  sensitive   = true
+}
+variable "web_karaplan_google_oauth_clientid" {
+  description = "KaraPlan Google OAuth 2.0 client ID"
+}
+variable "web_karaplan_google_oauth_clientsecret" {
+  description = "KaraPlan Google OAuth 2.0 client secret"
+  sensitive   = true
+}
+variable "web_karaplan_facebook_oauth_clientid" {
+  description = "KaraPlan Facebook OAuth 2.0 client ID"
+}
+variable "web_karaplan_facebook_oauth_clientsecret" {
+  description = "KaraPlan Facebook OAuth 2.0 client secret"
+  sensitive   = true
+}
+variable "web_karaplan_github_oauth_clientid" {
+  description = "KaraPlan GitHub OAuth 2.0 client ID"
+}
+variable "web_karaplan_github_oauth_clientsecret" {
+  description = "KaraPlan GitHub OAuth 2.0 client secret"
+  sensitive   = true
+}
+variable "web_ldap_root_password" {
+  description = "LDAP root password"
+  sensitive   = true
+}
+variable "web_mailserver_dkim_private_key" {
+  description = "DKIM private key (PEM-encoded)"
+  sensitive   = true
 }
 
 // Uptime checks

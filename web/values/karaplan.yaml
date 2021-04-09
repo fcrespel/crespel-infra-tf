@@ -1,0 +1,23 @@
+fullnameOverride: karaplan
+
+podSecurityContext:
+  runAsUser: 1003
+  runAsGroup: 1004
+
+nodeSelector:
+  server-role-web: "true"
+  domain-crespel-me: "true"
+
+ingress:
+  enabled: true
+  hosts:
+    - host: "karaplan.crespel.me"
+      paths:
+        - path: "/"
+
+env:
+  JAVA_TOOL_OPTIONS: "-Xms512m -Xmx1024m -Xverify:none -XX:+TieredCompilation -XX:TieredStopAtLevel=1"
+  SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/karaplan?useSSL=false&serverTimezone=Europe/Paris"
+  SPRING_JPA_DATABASEPLATFORM: "org.hibernate.dialect.MySQL5InnoDBDialect"
+  SPRING_REDIS_HOST: "redis"
+  SPRING_SESSION_STORETYPE: "redis"

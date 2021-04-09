@@ -1,0 +1,18 @@
+fullnameOverride: mysql
+
+podSecurityContext:
+  runAsUser: 1003
+  runAsGroup: 1004
+
+nodeSelector:
+  server-role-web: "true"
+  domain-crespel-me: "true"
+
+service:
+  aliases: ["db01"]
+
+volumes:
+  data:
+    hostPath:
+      path: /home/domains/crespel.me/mysql
+      type: DirectoryOrCreate

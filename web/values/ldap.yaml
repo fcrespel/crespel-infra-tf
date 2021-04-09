@@ -1,0 +1,22 @@
+fullnameOverride: ldap
+
+podSecurityContext:
+  runAsUser: 1003
+  runAsGroup: 1004
+
+nodeSelector:
+  server-role-web: "true"
+  domain-crespel-me: "true"
+
+env:
+  OPENLDAP_DB_SUFFIX: dc=crespel,dc=me
+
+secrets:
+  root:
+    username: cn=root,dc=crespel,dc=me
+
+volumes:
+  data:
+    hostPath:
+      path: /home/domains/crespel.me/ldap
+      type: DirectoryOrCreate
