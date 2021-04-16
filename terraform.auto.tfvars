@@ -61,6 +61,12 @@ dns_records = [
 
 # Web
 web_namespace = "domain-crespel-me"
+#web_backups_openrc = "toComplete"
+#web_backups_sa = "toComplete"
+#web_backups_ftp_username = "toComplete"
+#web_backups_ftp_password = "toComplete"
+#web_backups_mysql_username = "toComplete"
+#web_backups_mysql_password = "toComplete"
 #web_karaplan_db_username = "toComplete"
 #web_karaplan_db_password = "toComplete"
 #web_karaplan_google_oauth_clientid = "toComplete"

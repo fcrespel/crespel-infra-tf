@@ -79,6 +79,28 @@ variable "dns_records" {
 variable "web_namespace" {
   description = "Web Kubernetes namespace"
 }
+variable "web_backups_openrc" {
+  description = "OpenStack openrc file for backups"
+  sensitive   = true
+}
+variable "web_backups_sa" {
+  description = "Google Service Account JSON key for backups"
+  sensitive   = true
+}
+variable "web_backups_ftp_username" {
+  description = "FTP username for backups"
+}
+variable "web_backups_ftp_password" {
+  description = "FTP password for backups"
+  sensitive   = true
+}
+variable "web_backups_mysql_username" {
+  description = "MySQL username for backups"
+}
+variable "web_backups_mysql_password" {
+  description = "MySQL password for backups"
+  sensitive   = true
+}
 variable "web_karaplan_db_username" {
   description = "KaraPlan database user name"
 }

@@ -1,0 +1,35 @@
+fullnameOverride: backups
+
+podSecurityContext:
+  runAsUser: 1003
+  runAsGroup: 1004
+
+nodeSelector:
+  server-role-web: "true"
+  domain-crespel-me: "true"
+
+schedules:
+  files: "30 4 * * *"
+  ldap: "0 4 * * *"
+  mysql: "0 4 * * *"
+  sync: "0 5 * * *"
+
+env:
+  BACKUP_BACKEND: multi
+  BACKUP_BACKENDS: swift,gcs,ftp
+  BACKUP_GCS_BUCKET: crespel-me-backups
+  BACKUP_FTP_HOST: ftpback-rbx3-173.ovh.net
+  BACKUP_FTP_DIR: crespel.me
+  BACKUP_SYNC_BACKENDS: swift,gcs
+  BACKUP_SYNC_ARGS: pcs:nextcloud gcs:crespel-me-nextcloud
+  MYSQL_HOST: mysql-slave
+
+volumes:
+  domain:
+    hostPath:
+      path: /home/domains/crespel.me
+      type: DirectoryOrCreate
+  ldap:
+    hostPath:
+      path: /home/domains/crespel.me/ldap
+      type: DirectoryOrCreate
