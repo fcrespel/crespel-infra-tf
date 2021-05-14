@@ -1,0 +1,39 @@
+fullnameOverride: commandcentral
+
+nodeSelector:
+  server-role-web: "true"
+  domain-crespel-me: "true"
+
+ingress:
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+  hosts:
+    - host: "services.crespel.me"
+      paths:
+        - path: "/cce"
+          servicePort: cce-https
+        - path: "/webm105"
+          servicePort: spm-https
+        - path: "/fix-webm105-updates"
+          servicePort: spm-https
+
+volumes:
+  cce:
+    conf:
+      hostPath:
+        path: /home/domains/crespel.me/sag/profiles/CCE/configuration
+        type: DirectoryOrCreate
+    data:
+      hostPath:
+        path: /home/domains/crespel.me/sag/profiles/CCE/data
+        type: DirectoryOrCreate
+  spm:
+    conf:
+      hostPath:
+        path: /home/domains/crespel.me/sag/profiles/SPM/configuration
+        type: DirectoryOrCreate
+    data:
+      hostPath:
+        path: /home/domains/crespel.me/sag/profiles/SPM/data
+        type: DirectoryOrCreate

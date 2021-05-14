@@ -1,0 +1,6 @@
+apiVersion: v2
+name: commandcentral
+description: Commandcentral
+type: application
+version: 0.1.1
+appVersion: "10.5"
