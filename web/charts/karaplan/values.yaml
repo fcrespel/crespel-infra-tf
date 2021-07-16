@@ -6,7 +6,7 @@ replicaCount: 1
 strategy: RollingUpdate
 
 image:
-  repository: fcrespel/karaplan
+  repository: ghcr.io/fcrespel/karaplan
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: master
