@@ -79,6 +79,8 @@ web_namespace = "domain-crespel-me"
 #web_karaplan_github_oauth_clientid = "toComplete"
 #web_karaplan_github_oauth_clientsecret = "toComplete"
 #web_ldap_root_password = "toComplete"
+#web_logstash_elasticsearch_ca = "toComplete"
+#web_logstash_elasticsearch_password = "toComplete"
 #web_mailserver_dkim_private_key = "toComplete"
 #web_mysql_root_password = "toComplete"
 
