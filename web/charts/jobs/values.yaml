@@ -40,6 +40,7 @@ tolerations: []
 affinity: {}
 
 schedules: {}
+  # certbot-renew: "0 2 * * *"
   # nextcloud-cron: "*/5 * * * *"
   # nextcloud-preview-generate: "0 2 * * *"
   # piwik-archive: "0 * * * *"
@@ -48,4 +49,8 @@ volumes:
   apps: {}
     # hostPath:
     #   path: /home/domains/example.org/apps
+    #   type: DirectoryOrCreate
+  letsencrypt: {}
+    # hostPath:
+    #   path: /home/domains/example.org/letsencrypt
     #   type: DirectoryOrCreate
