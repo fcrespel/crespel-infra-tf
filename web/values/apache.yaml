@@ -100,8 +100,6 @@ vhosts:
     <VirtualHost _default_:8080>
       ServerName services.crespel.me
       DocumentRoot /srv/www/sd/services/htdocs/
-      Redirect permanent /kibana https://kibana.fabinfra.net
-      Redirect permanent /grafana https://grafana.fabinfra.net
       ErrorLog /srv/www/sd/services/logs/error_log
       CustomLog /srv/www/sd/services/logs/access_log combined
       Include /etc/apache2/vhosts.d/vhost.inc
