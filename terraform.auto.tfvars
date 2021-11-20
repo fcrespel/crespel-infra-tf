@@ -30,7 +30,7 @@ dns_records = [
   { name = "",                        ttl = 0,     type = "CAA",    target = "128 issue \"letsencrypt.org\"" },
   { name = "",                        ttl = 0,     type = "MX",     target = "1 mx4.mail.ovh.net." },
   { name = "",                        ttl = 0,     type = "MX",     target = "10 mx3.mail.ovh.net." },
-  { name = "",                        ttl = 600,   type = "SPF",    target = "\"v=spf1 a:ks11.srv.fabinfra.net a:sy02.srv.fabinfra.net include:mx.ovh.com ?all\"" },
+  { name = "",                        ttl = 600,   type = "SPF",    target = "\"v=spf1 a:ks11.srv.fabinfra.net a:sy02.srv.fabinfra.net a:sy03.srv.fabinfra.net include:mx.ovh.com ?all\"" },
   { name = "",                        ttl = 0,     type = "TXT",    target = "\"google-site-verification=xZc65WFJ6F-kdnhv2LBjUQ9_m-nuc-dFzO8yxCTX9_k\"" },
   { name = "_dmarc",                  ttl = 0,     type = "DMARC",  target = "v=DMARC1;p=none;rua=mailto:postmaster@crespel.me;" },
   { name = "*.dev",                   ttl = 1800,  type = "CNAME",  target = "dev" },
