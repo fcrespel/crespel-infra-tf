@@ -11,6 +11,7 @@ nodeSelector:
 ingress:
   enabled: true
   annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/proxy-body-size: 300m
   hosts:
     - host: "crespel.me"
@@ -22,6 +23,18 @@ ingress:
     - host: "services.crespel.me"
       paths:
         - path: "/"
+  tls:
+    - secretName: apache-tls
+      hosts:
+        - "crespel.me"
+        - "blog.crespel.me"
+        - "blogs.crespel.me"
+        - "cloud.crespel.me"
+        - "docker.crespel.me"
+        - "fabien.crespel.me"
+        - "files.crespel.me"
+        - "services.crespel.me"
+        - "www.crespel.me"
 
 env:
   SERVER_ENV: production

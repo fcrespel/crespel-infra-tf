@@ -17,6 +17,10 @@ ingress:
           servicePort: spm-https
         - path: "/fix-webm105-updates"
           servicePort: spm-https
+  tls:
+    - secretName: apache-tls
+      hosts:
+        - "services.crespel.me"
 
 volumes:
   cce:

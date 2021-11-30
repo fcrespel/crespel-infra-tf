@@ -10,10 +10,16 @@ nodeSelector:
 
 ingress:
   enabled: true
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
   hosts:
     - host: "karaplan.crespel.me"
       paths:
         - path: "/"
+  tls:
+    - secretName: karaplan-tls
+      hosts:
+        - "karaplan.crespel.me"
 
 env:
   JAVA_TOOL_OPTIONS: "-Xms512m -Xmx1024m -Xverify:none -XX:+TieredCompilation -XX:TieredStopAtLevel=1"

@@ -20,6 +20,11 @@ ingress:
       paths:
         - path: "/"
           servicePort: docker
+  tls:
+    - secretName: apache-tls
+      hosts:
+        - "docker.crespel.me"
+        - "services.crespel.me"
 
 env:
   NEXUS_CONTEXT: nexus
