@@ -17,10 +17,25 @@ ingress:
     - host: "crespel.me"
       paths:
         - path: "/"
-    - host: "*.crespel.me"
+    - host: "blog.crespel.me"
+      paths:
+        - path: "/"
+    - host: "blogs.crespel.me"
+      paths:
+        - path: "/"
+    - host: "cloud.crespel.me"
+      paths:
+        - path: "/"
+    - host: "fabien.crespel.me"
+      paths:
+        - path: "/"
+    - host: "files.crespel.me"
       paths:
         - path: "/"
     - host: "services.crespel.me"
+      paths:
+        - path: "/"
+    - host: "www.crespel.me"
       paths:
         - path: "/"
   tls:
