@@ -9,7 +9,6 @@ nodeSelector:
   domain-crespel-me: "true"
 
 schedules:
-  certbot-renew: "0 2 * * *"
   nextcloud-cron: "3-59/5 * * * *"
   nextcloud-preview-generate: "17 2 * * *"
   piwik-archive: "7 * * * *"
@@ -18,8 +17,4 @@ volumes:
   apps:
     hostPath:
       path: /home/domains/crespel.me/apps
-      type: DirectoryOrCreate
-  letsencrypt:
-    hostPath:
-      path: /home/domains/crespel.me/letsencrypt
       type: DirectoryOrCreate
