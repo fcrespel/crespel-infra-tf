@@ -12,7 +12,7 @@ schedules:
   files: "30 4 * * *"
   ldap: "0 4 * * *"
   mysql: "0 4 * * *"
-  sync: "0 5 * * *"
+  sync: "0 4 * * *"
 
 env:
   BACKUP_BACKEND: multi
