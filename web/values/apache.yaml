@@ -17,27 +17,35 @@ ingress:
     - host: "crespel.me"
       paths:
         - path: "/"
+          pathType: ImplementationSpecific
     - host: "blog.crespel.me"
       paths:
         - path: "/"
+          pathType: ImplementationSpecific
     - host: "blogs.crespel.me"
       paths:
         - path: "/"
+          pathType: ImplementationSpecific
     - host: "cloud.crespel.me"
       paths:
         - path: "/"
+          pathType: ImplementationSpecific
     - host: "fabien.crespel.me"
       paths:
         - path: "/"
+          pathType: ImplementationSpecific
     - host: "files.crespel.me"
       paths:
         - path: "/"
+          pathType: ImplementationSpecific
     - host: "services.crespel.me"
       paths:
         - path: "/"
+          pathType: ImplementationSpecific
     - host: "www.crespel.me"
       paths:
         - path: "/"
+          pathType: ImplementationSpecific
   tls:
     - secretName: apache-tls
       hosts:

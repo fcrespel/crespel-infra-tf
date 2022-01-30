@@ -12,11 +12,14 @@ ingress:
     - host: "services.crespel.me"
       paths:
         - path: "/cce"
-          servicePort: cce-https
+          pathType: ImplementationSpecific
+          servicePort: 8091
         - path: "/webm105"
-          servicePort: spm-https
+          pathType: ImplementationSpecific
+          servicePort: 8993
         - path: "/fix-webm105-updates"
-          servicePort: spm-https
+          pathType: ImplementationSpecific
+          servicePort: 8993
   tls:
     - secretName: apache-tls
       hosts:
