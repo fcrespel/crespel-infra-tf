@@ -83,6 +83,9 @@ web_namespace = "domain-crespel-me"
 #web_logstash_elasticsearch_ca = "toComplete"
 #web_logstash_elasticsearch_password = "toComplete"
 #web_mailserver_dkim_private_key = "toComplete"
+#web_matomo_db_username = "toComplete"
+#web_matomo_db_password = "toComplete"
+#web_matomo_salt = "toComplete"
 #web_mysql_root_password = "toComplete"
 
 # Uptime checks
