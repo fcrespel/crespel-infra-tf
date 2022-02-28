@@ -87,6 +87,10 @@ web_namespace = "domain-crespel-me"
 #web_matomo_db_password = "toComplete"
 #web_matomo_salt = "toComplete"
 #web_mysql_root_password = "toComplete"
+#web_nextcloud_db_username = "toComplete"
+#web_nextcloud_db_password = "toComplete"
+#web_nextcloud_swift_username = "toComplete"
+#web_nextcloud_swift_password = "toComplete"
 
 # Uptime checks
 uptime_check_urls = [

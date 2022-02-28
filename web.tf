@@ -83,15 +83,6 @@ resource "helm_release" "web_backups" {
   }
 }
 
-// Cron jobs
-resource "helm_release" "web_jobs" {
-  name      = "jobs"
-  chart     = "${path.module}/web/charts/jobs"
-  namespace = kubernetes_namespace.web_ns.metadata[0].name
-
-  values = [file("${path.module}/web/values/jobs.yaml")]
-}
-
 // Apache web server
 resource "helm_release" "web_apache" {
   name      = "apache"
@@ -240,6 +231,32 @@ resource "helm_release" "web_mysql_slave" {
   namespace = kubernetes_namespace.web_ns.metadata[0].name
 
   values = [file("${path.module}/web/values/mysql-slave.yaml")]
+}
+
+// Nextcloud
+resource "helm_release" "web_nextcloud" {
+  name      = "nextcloud"
+  chart     = "${path.module}/web/charts/nextcloud"
+  namespace = kubernetes_namespace.web_ns.metadata[0].name
+
+  values = [file("${path.module}/web/values/nextcloud.yaml")]
+
+  set_sensitive {
+    name  = "env.MYSQL_USER"
+    value = var.web_nextcloud_db_username
+  }
+  set_sensitive {
+    name  = "env.MYSQL_PASSWORD"
+    value = var.web_nextcloud_db_password
+  }
+  set_sensitive {
+    name  = "env.OBJECTSTORE_SWIFT_USER_NAME"
+    value = var.web_nextcloud_swift_username
+  }
+  set_sensitive {
+    name  = "env.OBJECTSTORE_SWIFT_USER_PASSWORD"
+    value = var.web_nextcloud_swift_password
+  }
 }
 
 // Nexus repository manager

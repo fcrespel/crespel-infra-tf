@@ -26,10 +26,6 @@ ingress:
       paths:
         - path: "/"
           pathType: ImplementationSpecific
-    - host: "cloud.crespel.me"
-      paths:
-        - path: "/"
-          pathType: ImplementationSpecific
     - host: "fabien.crespel.me"
       paths:
         - path: "/"
@@ -52,7 +48,6 @@ ingress:
         - "crespel.me"
         - "blog.crespel.me"
         - "blogs.crespel.me"
-        - "cloud.crespel.me"
         - "docker.crespel.me"
         - "fabien.crespel.me"
         - "files.crespel.me"
@@ -106,14 +101,6 @@ vhosts:
       DocumentRoot /srv/www/sd/blogs/htdocs/
       ErrorLog /srv/www/sd/blogs/logs/error_log
       CustomLog /srv/www/sd/blogs/logs/access_log combined
-      Include /etc/apache2/vhosts.d/vhost.inc
-    </VirtualHost>
-  cloud.conf: |
-    <VirtualHost _default_:8080>
-      ServerName cloud.crespel.me
-      DocumentRoot /srv/www/sd/cloud/htdocs/
-      ErrorLog /srv/www/sd/cloud/logs/error_log
-      CustomLog /srv/www/sd/cloud/logs/access_log combined
       Include /etc/apache2/vhosts.d/vhost.inc
     </VirtualHost>
   fabien.conf: |

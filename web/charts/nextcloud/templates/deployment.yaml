@@ -1,0 +1,112 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "nextcloud.fullname" . }}
+  labels:
+    {{- include "nextcloud.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "nextcloud.selectorLabels" . | nindent 6 }}
+  strategy:
+    type: {{ .Values.strategy }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "nextcloud.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "nextcloud.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          env:
+            {{- range $key, $value := .Values.env }}
+            - name: "{{ tpl $key $ }}"
+              value: "{{ tpl (print $value) $ }}"
+            {{- end }}
+          livenessProbe:
+            initialDelaySeconds: 3
+            periodSeconds: 10
+            timeoutSeconds: 10
+            httpGet:
+              path: /status.php
+              port: http
+              httpHeaders:
+                - name: Host
+                  value: localhost
+          readinessProbe:
+            initialDelaySeconds: 3
+            periodSeconds: 10
+            timeoutSeconds: 10
+            httpGet:
+              path: /status.php
+              port: http
+              httpHeaders:
+                - name: Host
+                  value: localhost
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+          {{- if .Values.volumes.www }}
+            - mountPath: /var/www/html
+              name: www
+          {{- end }}
+          {{- if .Values.volumes.config }}
+            - mountPath: /var/www/html/config
+              name: config
+          {{- end }}
+          {{- if .Values.volumes.customapps }}
+            - mountPath: /var/www/html/custom_apps
+              name: customapps
+          {{- end }}
+          {{- if .Values.volumes.data }}
+            - mountPath: /var/www/html/data
+              name: data
+          {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+      {{- with .Values.volumes.www }}
+        - name: www
+          {{- toYaml . | nindent 10 }}
+      {{- end }}
+      {{- with .Values.volumes.config }}
+        - name: config
+          {{- toYaml . | nindent 10 }}
+      {{- end }}
+      {{- with .Values.volumes.customapps }}
+        - name: customapps
+          {{- toYaml . | nindent 10 }}
+      {{- end }}
+      {{- with .Values.volumes.data }}
+        - name: data
+          {{- toYaml . | nindent 10 }}
+      {{- end }}

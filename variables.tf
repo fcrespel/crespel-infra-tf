@@ -171,6 +171,20 @@ variable "web_mysql_root_password" {
   description = "MySQL root password"
   sensitive   = true
 }
+variable "web_nextcloud_db_username" {
+  description = "Nextcloud database username"
+}
+variable "web_nextcloud_db_password" {
+  description = "Nextcloud database password"
+  sensitive   = true
+}
+variable "web_nextcloud_swift_username" {
+  description = "Nextcloud OpenStack Swift object store username"
+}
+variable "web_nextcloud_swift_password" {
+  description = "Nextcloud OpenStack Swift object store password"
+  sensitive   = true
+}
 
 // Uptime checks
 variable "uptime_check_urls" {

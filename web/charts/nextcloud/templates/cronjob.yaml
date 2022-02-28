@@ -1,0 +1,149 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ include "nextcloud.fullname" . }}-cron
+  labels:
+    {{- include "nextcloud.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.cron.schedule | quote }}
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          {{- with .Values.imagePullSecrets }}
+          imagePullSecrets:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          serviceAccountName: {{ include "nextcloud.serviceAccountName" . }}
+          securityContext:
+            {{- toYaml .Values.podSecurityContext | nindent 12 }}
+          containers:
+            - name: {{ .Chart.Name }}
+              securityContext:
+                runAsUser: 33
+                runAsGroup: 33
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+              args: ['/usr/local/bin/php', '/var/www/html/cron.php']
+              volumeMounts:
+              {{- if .Values.volumes.www }}
+                - mountPath: /var/www/html
+                  name: www
+              {{- end }}
+              {{- if .Values.volumes.config }}
+                - mountPath: /var/www/html/config
+                  name: config
+              {{- end }}
+              {{- if .Values.volumes.customapps }}
+                - mountPath: /var/www/html/custom_apps
+                  name: customapps
+              {{- end }}
+              {{- if .Values.volumes.data }}
+                - mountPath: /var/www/html/data
+                  name: data
+              {{- end }}
+          {{- with .Values.nodeSelector }}
+          nodeSelector:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.affinity }}
+          affinity:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.tolerations }}
+          tolerations:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          restartPolicy: Never
+          volumes:
+          {{- with .Values.volumes.www }}
+            - name: www
+              {{- toYaml . | nindent 14 }}
+          {{- end }}
+          {{- with .Values.volumes.config }}
+            - name: config
+              {{- toYaml . | nindent 14 }}
+          {{- end }}
+          {{- with .Values.volumes.customapps }}
+            - name: customapps
+              {{- toYaml . | nindent 14 }}
+          {{- end }}
+          {{- with .Values.volumes.data }}
+            - name: data
+              {{- toYaml . | nindent 14 }}
+          {{- end }}
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ include "nextcloud.fullname" . }}-preview-generate
+  labels:
+    {{- include "nextcloud.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.cron.schedule | quote }}
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          {{- with .Values.imagePullSecrets }}
+          imagePullSecrets:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          serviceAccountName: {{ include "nextcloud.serviceAccountName" . }}
+          securityContext:
+            {{- toYaml .Values.podSecurityContext | nindent 12 }}
+          containers:
+            - name: {{ .Chart.Name }}
+              securityContext:
+                runAsUser: 33
+                runAsGroup: 33
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+              args: ['/usr/local/bin/php', '/var/www/html/occ', 'preview:pre-generate']
+              volumeMounts:
+              {{- if .Values.volumes.www }}
+                - mountPath: /var/www/html
+                  name: www
+              {{- end }}
+              {{- if .Values.volumes.config }}
+                - mountPath: /var/www/html/config
+                  name: config
+              {{- end }}
+              {{- if .Values.volumes.customapps }}
+                - mountPath: /var/www/html/custom_apps
+                  name: customapps
+              {{- end }}
+              {{- if .Values.volumes.data }}
+                - mountPath: /var/www/html/data
+                  name: data
+              {{- end }}
+          {{- with .Values.nodeSelector }}
+          nodeSelector:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.affinity }}
+          affinity:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.tolerations }}
+          tolerations:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          restartPolicy: Never
+          volumes:
+          {{- with .Values.volumes.www }}
+            - name: www
+              {{- toYaml . | nindent 14 }}
+          {{- end }}
+          {{- with .Values.volumes.config }}
+            - name: config
+              {{- toYaml . | nindent 14 }}
+          {{- end }}
+          {{- with .Values.volumes.customapps }}
+            - name: customapps
+              {{- toYaml . | nindent 14 }}
+          {{- end }}
+          {{- with .Values.volumes.data }}
+            - name: data
+              {{- toYaml . | nindent 14 }}
+          {{- end }}

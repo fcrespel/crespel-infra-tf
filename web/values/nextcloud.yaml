@@ -1,0 +1,60 @@
+fullnameOverride: nextcloud
+
+nodeSelector:
+  server-role-web: "true"
+  domain-crespel-me: "true"
+
+ingress:
+  enabled: true
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/proxy-body-size: 2g
+  hosts:
+    - host: "cloud.crespel.me"
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - secretName: nextcloud-tls
+      hosts:
+        - "cloud.crespel.me"
+
+env:
+  MAIL_DOMAIN: crespel.me
+  MAIL_FROM_ADDRESS: nextcloud
+  MYSQL_DATABASE: crespel-nextcloud
+  MYSQL_HOST: mysql
+  NEXTCLOUD_TRUSTED_DOMAINS: cloud.crespel.me
+  OBJECTSTORE_SWIFT_CONTAINER_NAME: nextcloud
+  OBJECTSTORE_SWIFT_PROJECT_NAME: "2851416679039413"
+  OBJECTSTORE_SWIFT_REGION: GRA
+  OBJECTSTORE_SWIFT_URL: https://auth.cloud.ovh.net/v3/
+  OVERWRITECLIURL: https://cloud.crespel.me
+  OVERWRITEPROTOCOL: https
+  PHP_MEMORY_LIMIT: 2G
+  PHP_UPLOAD_LIMIT: 2G
+  REDIS_HOST: redis
+  SMTP_HOST: mailserver
+  SMTP_PORT: 587
+  TRUSTED_PROXIES: 172.17.0.0/16
+
+cron:
+  schedule: "3-59/5 * * * *"
+
+volumes:
+  config:
+    hostPath:
+      path: /home/domains/crespel.me/apps/nextcloud/config
+      type: DirectoryOrCreate
+  customapps:
+    hostPath:
+      path: /home/domains/crespel.me/apps/nextcloud/custom_apps
+      type: DirectoryOrCreate
+  data:
+    hostPath:
+      path: /home/domains/crespel.me/apps/nextcloud/data
+      type: DirectoryOrCreate
+  www:
+    hostPath:
+      path: /home/domains/crespel.me/apps/nextcloud/www
+      type: DirectoryOrCreate
