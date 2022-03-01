@@ -25,6 +25,11 @@ spec:
                 runAsGroup: 33
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
               args: ['/usr/local/bin/php', '/var/www/html/cron.php']
+              env:
+                {{- range $key, $value := .Values.env }}
+                - name: "{{ tpl $key $ }}"
+                  value: "{{ tpl (print $value) $ }}"
+                {{- end }}
               volumeMounts:
               {{- if .Values.volumes.www }}
                 - mountPath: /var/www/html
@@ -100,6 +105,11 @@ spec:
                 runAsGroup: 33
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
               args: ['/usr/local/bin/php', '/var/www/html/occ', 'preview:pre-generate']
+              env:
+                {{- range $key, $value := .Values.env }}
+                - name: "{{ tpl $key $ }}"
+                  value: "{{ tpl (print $value) $ }}"
+                {{- end }}
               volumeMounts:
               {{- if .Values.volumes.www }}
                 - mountPath: /var/www/html

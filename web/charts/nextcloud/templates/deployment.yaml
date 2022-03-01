@@ -42,6 +42,13 @@ spec:
             - name: "{{ tpl $key $ }}"
               value: "{{ tpl (print $value) $ }}"
             {{- end }}
+          startupProbe:
+            initialDelaySeconds: 3
+            periodSeconds: 10
+            timeoutSeconds: 10
+            failureThreshold: 12
+            tcpSocket:
+              port: http
           livenessProbe:
             initialDelaySeconds: 3
             periodSeconds: 10
