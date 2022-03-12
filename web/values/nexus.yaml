@@ -34,5 +34,5 @@ env:
 volumes:
   data:
     hostPath:
-      path: /home/domains/crespel.me/nexus
+      path: /home/domains/crespel.me/apps/nexus
       type: DirectoryOrCreate

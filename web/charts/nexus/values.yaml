@@ -9,7 +9,7 @@ image:
   repository: sonatype/nexus3
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: latest
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
@@ -84,5 +84,5 @@ env: {}
 volumes:
   data: {}
     # hostPath:
-    #   path: /home/domains/example.org/nexus
+    #   path: /home/domains/example.org/apps/nexus
     #   type: DirectoryOrCreate
