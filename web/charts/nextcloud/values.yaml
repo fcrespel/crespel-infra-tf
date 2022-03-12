@@ -83,6 +83,7 @@ env: {}
   # MYSQL_HOST: mysql
 
 cron:
+  enabled: true
   schedule: "*/5 * * * *"
 
 volumes:
