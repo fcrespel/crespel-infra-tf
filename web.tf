@@ -294,3 +294,53 @@ resource "helm_release" "web_redis" {
 
   values = [file("${path.module}/web/values/redis.yaml")]
 }
+
+// Wordpress
+resource "helm_release" "web_wordpress" {
+  name      = "wordpress"
+  chart     = "${path.module}/web/charts/wordpress"
+  namespace = kubernetes_namespace.web_ns.metadata[0].name
+
+  values = [file("${path.module}/web/values/wordpress.yaml")]
+
+  set_sensitive {
+    name  = "env.WORDPRESS_DB_USER"
+    value = var.web_wordpress_db_username
+  }
+  set_sensitive {
+    name  = "env.WORDPRESS_DB_PASSWORD"
+    value = var.web_wordpress_db_password
+  }
+  set_sensitive {
+    name  = "env.WORDPRESS_AUTH_KEY"
+    value = var.web_wordpress_auth_key
+  }
+  set_sensitive {
+    name  = "env.WORDPRESS_SECURE_AUTH_KEY"
+    value = var.web_wordpress_secure_auth_key
+  }
+  set_sensitive {
+    name  = "env.WORDPRESS_LOGGED_IN_KEY"
+    value = var.web_wordpress_logged_in_key
+  }
+  set_sensitive {
+    name  = "env.WORDPRESS_NONCE_KEY"
+    value = var.web_wordpress_nonce_key
+  }
+  set_sensitive {
+    name  = "env.WORDPRESS_AUTH_SALT"
+    value = var.web_wordpress_auth_salt
+  }
+  set_sensitive {
+    name  = "env.WORDPRESS_SECURE_AUTH_SALT"
+    value = var.web_wordpress_secure_auth_salt
+  }
+  set_sensitive {
+    name  = "env.WORDPRESS_LOGGED_IN_SALT"
+    value = var.web_wordpress_logged_in_salt
+  }
+  set_sensitive {
+    name  = "env.WORDPRESS_NONCE_SALT"
+    value = var.web_wordpress_nonce_salt
+  }
+}

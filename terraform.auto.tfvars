@@ -91,6 +91,16 @@ web_namespace = "domain-crespel-me"
 #web_nextcloud_db_password = "toComplete"
 #web_nextcloud_swift_username = "toComplete"
 #web_nextcloud_swift_password = "toComplete"
+#web_wordpress_db_username = "toComplete"
+#web_wordpress_db_password = "toComplete"
+#web_wordpress_auth_key = "toComplete"
+#web_wordpress_secure_auth_key = "toComplete"
+#web_wordpress_logged_in_key = "toComplete"
+#web_wordpress_nonce_key = "toComplete"
+#web_wordpress_auth_salt = "toComplete"
+#web_wordpress_secure_auth_salt = "toComplete"
+#web_wordpress_logged_in_salt = "toComplete"
+#web_wordpress_nonce_salt = "toComplete"
 
 # Uptime checks
 uptime_check_urls = [

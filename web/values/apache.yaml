@@ -14,18 +14,6 @@ ingress:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/proxy-body-size: 300m
   hosts:
-    - host: "crespel.me"
-      paths:
-        - path: "/"
-          pathType: ImplementationSpecific
-    - host: "blog.crespel.me"
-      paths:
-        - path: "/"
-          pathType: ImplementationSpecific
-    - host: "blogs.crespel.me"
-      paths:
-        - path: "/"
-          pathType: ImplementationSpecific
     - host: "fabien.crespel.me"
       paths:
         - path: "/"
@@ -38,21 +26,13 @@ ingress:
       paths:
         - path: "/"
           pathType: ImplementationSpecific
-    - host: "www.crespel.me"
-      paths:
-        - path: "/"
-          pathType: ImplementationSpecific
   tls:
     - secretName: apache-tls
       hosts:
-        - "crespel.me"
-        - "blog.crespel.me"
-        - "blogs.crespel.me"
         - "docker.crespel.me"
         - "fabien.crespel.me"
         - "files.crespel.me"
         - "services.crespel.me"
-        - "www.crespel.me"
 
 env:
   SERVER_ENV: production
@@ -86,23 +66,6 @@ vhosts:
       CustomLog /srv/www/sd/www/logs/access_log combined
       Include /etc/apache2/vhosts.d/vhost.inc
     </VirtualHost>
-  blog.conf: |
-    <VirtualHost _default_:8080>
-      ServerName blog.crespel.me
-      DocumentRoot /srv/www/sd/blog/htdocs/
-      Redirect permanent / https://blogs.crespel.me/
-      ErrorLog /srv/www/sd/blog/logs/error_log
-      CustomLog /srv/www/sd/blog/logs/access_log combined
-      Include /etc/apache2/vhosts.d/vhost.inc
-    </VirtualHost>
-  blogs.conf: |
-    <VirtualHost _default_:8080>
-      ServerName blogs.crespel.me
-      DocumentRoot /srv/www/sd/blogs/htdocs/
-      ErrorLog /srv/www/sd/blogs/logs/error_log
-      CustomLog /srv/www/sd/blogs/logs/access_log combined
-      Include /etc/apache2/vhosts.d/vhost.inc
-    </VirtualHost>
   fabien.conf: |
     <VirtualHost _default_:8080>
       ServerName fabien.crespel.me
@@ -125,13 +88,5 @@ vhosts:
       DocumentRoot /srv/www/sd/services/htdocs/
       ErrorLog /srv/www/sd/services/logs/error_log
       CustomLog /srv/www/sd/services/logs/access_log combined
-      Include /etc/apache2/vhosts.d/vhost.inc
-    </VirtualHost>
-  www.conf: |
-    <VirtualHost _default_:8080>
-      ServerName www.crespel.me
-      DocumentRoot /srv/www/sd/www/htdocs/
-      ErrorLog /srv/www/sd/www/logs/error_log
-      CustomLog /srv/www/sd/www/logs/access_log combined
       Include /etc/apache2/vhosts.d/vhost.inc
     </VirtualHost>

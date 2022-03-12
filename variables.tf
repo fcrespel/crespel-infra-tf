@@ -185,6 +185,45 @@ variable "web_nextcloud_swift_password" {
   description = "Nextcloud OpenStack Swift object store password"
   sensitive   = true
 }
+variable "web_wordpress_db_username" {
+  description = "Wordpress database username"
+}
+variable "web_wordpress_db_password" {
+  description = "Wordpress database password"
+  sensitive   = true
+}
+variable "web_wordpress_auth_key" {
+  description = "Wordpress auth key"
+  sensitive   = true
+}
+variable "web_wordpress_secure_auth_key" {
+  description = "Wordpress secure auth key"
+  sensitive   = true
+}
+variable "web_wordpress_logged_in_key" {
+  description = "Wordpress logged in key"
+  sensitive   = true
+}
+variable "web_wordpress_nonce_key" {
+  description = "Wordpress nonce key"
+  sensitive   = true
+}
+variable "web_wordpress_auth_salt" {
+  description = "Wordpress auth salt"
+  sensitive   = true
+}
+variable "web_wordpress_secure_auth_salt" {
+  description = "Wordpress secure auth salt"
+  sensitive   = true
+}
+variable "web_wordpress_logged_in_salt" {
+  description = "Wordpress logged in salt"
+  sensitive   = true
+}
+variable "web_wordpress_nonce_salt" {
+  description = "Wordpress nonce salt"
+  sensitive   = true
+}
 
 // Uptime checks
 variable "uptime_check_urls" {
