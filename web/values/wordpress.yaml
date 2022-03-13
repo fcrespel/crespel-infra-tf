@@ -27,7 +27,7 @@ ingress:
         - path: /
           pathType: ImplementationSpecific
   tls:
-    - secretName: blogs-tls
+    - secretName: wordpress-tls
       hosts:
         - "crespel.me"
         - "blog.crespel.me"
