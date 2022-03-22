@@ -37,6 +37,7 @@ ingress:
 env:
   SERVER_ENV: production
   SERVER_NAME: srv01.crespel.me
+  APACHE_SERVERADMIN: webmaster@crespel.me
 
 volumes:
   logs:
@@ -53,40 +54,18 @@ volumes:
       type: DirectoryOrCreate
 
 vhosts:
-  vhost.inc: |
-    ServerAdmin webmaster@crespel.me
-    Include /etc/apache2/mod_autoindex-defaults-oxygen.conf
-    IncludeOptional /etc/apache2/vhosts.d/common?inc
-  _default_.conf: |
-    <VirtualHost _default_:8080>
-      ServerName crespel.me
-      DocumentRoot /srv/www/sd/www/htdocs/
-      Redirect permanent / https://www.crespel.me/
-      ErrorLog /srv/www/sd/www/logs/error_log
-      CustomLog /srv/www/sd/www/logs/access_log combined
-      Include /etc/apache2/vhosts.d/vhost.inc
-    </VirtualHost>
   fabien.conf: |
     <VirtualHost _default_:8080>
       ServerName fabien.crespel.me
-      DocumentRoot /srv/www/sd/fabien/htdocs/
-      ErrorLog /srv/www/sd/fabien/logs/error_log
-      CustomLog /srv/www/sd/fabien/logs/access_log combined
-      Include /etc/apache2/vhosts.d/vhost.inc
+      Redirect / https://www.doyoubuzz.com/fabien-crespel
     </VirtualHost>
   files.conf: |
     <VirtualHost _default_:8080>
       ServerName files.crespel.me
       DocumentRoot /srv/www/sd/files/htdocs/
-      ErrorLog /srv/www/sd/files/logs/error_log
-      CustomLog /srv/www/sd/files/logs/access_log combined
-      Include /etc/apache2/vhosts.d/vhost.inc
     </VirtualHost>
   services.conf: |
     <VirtualHost _default_:8080>
       ServerName services.crespel.me
       DocumentRoot /srv/www/sd/services/htdocs/
-      ErrorLog /srv/www/sd/services/logs/error_log
-      CustomLog /srv/www/sd/services/logs/access_log combined
-      Include /etc/apache2/vhosts.d/vhost.inc
     </VirtualHost>
