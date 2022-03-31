@@ -40,10 +40,6 @@ env:
   APACHE_SERVERADMIN: webmaster@crespel.me
 
 volumes:
-  logs:
-    hostPath:
-      path: /home/domains/crespel.me/httpd/logs
-      type: DirectoryOrCreate
   apps:
     hostPath:
       path: /home/domains/crespel.me/apps
