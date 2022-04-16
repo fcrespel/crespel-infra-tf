@@ -77,4 +77,3 @@ tolerations: []
 affinity: {}
 
 env: {}
-envFromSecret: ""

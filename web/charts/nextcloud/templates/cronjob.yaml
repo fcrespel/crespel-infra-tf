@@ -30,11 +30,11 @@ spec:
               {{- end }}
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
               args: ['/usr/local/bin/php', '/var/www/html/cron.php']
-              env:
-                {{- range $key, $value := .Values.env }}
-                - name: "{{ tpl $key $ }}"
-                  value: "{{ tpl (print $value) $ }}"
-                {{- end }}
+              {{- if .Values.env }}
+              envFrom:
+                - secretRef:
+                    name: {{ include "nextcloud.fullname" . }}-env
+              {{- end }}
               volumeMounts:
               {{- if .Values.volumes.www }}
                 - mountPath: /var/www/html

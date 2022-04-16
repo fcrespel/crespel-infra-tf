@@ -115,22 +115,6 @@ resource "helm_release" "web_commandcentral" {
 }
 
 // KaraPlan
-resource "kubernetes_secret" "web_karaplan_env_secret" {
-  metadata {
-    name      = "karaplan-env-secret"
-    namespace = kubernetes_namespace.web_ns.metadata[0].name
-  }
-  data = {
-    SPRING_DATASOURCE_USERNAME                                       = var.web_karaplan_db_username
-    SPRING_DATASOURCE_PASSWORD                                       = var.web_karaplan_db_password
-    SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENTID       = var.web_karaplan_google_oauth_clientid
-    SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENTSECRET   = var.web_karaplan_google_oauth_clientsecret
-    SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_FACEBOOK_CLIENTID     = var.web_karaplan_facebook_oauth_clientid
-    SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_FACEBOOK_CLIENTSECRET = var.web_karaplan_facebook_oauth_clientsecret
-    SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GITHUB_CLIENTID       = var.web_karaplan_github_oauth_clientid
-    SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GITHUB_CLIENTSECRET   = var.web_karaplan_github_oauth_clientsecret
-  }
-}
 resource "helm_release" "web_karaplan" {
   name      = "karaplan"
   chart     = "${path.module}/web/charts/karaplan"
@@ -138,9 +122,37 @@ resource "helm_release" "web_karaplan" {
 
   values = [file("${path.module}/web/values/karaplan.yaml")]
 
-  set {
-    name  = "envFromSecret"
-    value = kubernetes_secret.web_karaplan_env_secret.metadata[0].name
+  set_sensitive {
+    name  = "env.SPRING_DATASOURCE_USERNAME"
+    value = var.web_karaplan_db_username
+  }
+  set_sensitive {
+    name  = "env.SPRING_DATASOURCE_PASSWORD"
+    value = var.web_karaplan_db_password
+  }
+  set_sensitive {
+    name  = "env.SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENTID"
+    value = var.web_karaplan_google_oauth_clientid
+  }
+  set_sensitive {
+    name  = "env.SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENTSECRET"
+    value = var.web_karaplan_google_oauth_clientsecret
+  }
+  set_sensitive {
+    name  = "env.SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_FACEBOOK_CLIENTID"
+    value = var.web_karaplan_facebook_oauth_clientid
+  }
+  set_sensitive {
+    name  = "env.SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_FACEBOOK_CLIENTSECRET"
+    value = var.web_karaplan_facebook_oauth_clientsecret
+  }
+  set_sensitive {
+    name  = "env.SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GITHUB_CLIENTID"
+    value = var.web_karaplan_github_oauth_clientid
+  }
+  set_sensitive {
+    name  = "env.SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GITHUB_CLIENTSECRET"
+    value = var.web_karaplan_github_oauth_clientsecret
   }
 }
 
@@ -203,7 +215,7 @@ resource "helm_release" "web_mysql" {
   values = [file("${path.module}/web/values/mysql.yaml")]
 
   set_sensitive {
-    name  = "secrets.root.password"
+    name  = "env.MYSQL_ROOT_PASSWORD"
     value = var.web_mysql_root_password
   }
 }
