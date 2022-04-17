@@ -26,7 +26,7 @@ cron:
 
 config:
   database:
-    host: db01
+    host: mysql
     dbname: crespel-piwik
     tables_prefix: piwik_
     schema: Myisam
