@@ -12,6 +12,7 @@ ingress:
   enabled: true
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/default-backend: nginx-errors
   hosts:
     - host: "karaplan.crespel.me"
       paths:
