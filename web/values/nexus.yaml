@@ -18,15 +18,9 @@ ingress:
       paths:
         - path: "/nexus"
           pathType: ImplementationSpecific
-    - host: "docker.crespel.me"
-      paths:
-        - path: "/"
-          pathType: ImplementationSpecific
-          servicePort: 5000
   tls:
     - secretName: apache-tls
       hosts:
-        - "docker.crespel.me"
         - "services.crespel.me"
 
 env:

@@ -26,7 +26,6 @@ ingress:
   tls:
     - secretName: apache-tls
       hosts:
-        - "docker.crespel.me"
         - "files.crespel.me"
         - "services.crespel.me"
 

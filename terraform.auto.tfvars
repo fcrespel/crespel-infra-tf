@@ -38,7 +38,6 @@ dns_records = [
   { name = "blogs",                   ttl = 1800,  type = "CNAME",  target = "srv01" },
   { name = "cloud",                   ttl = 1800,  type = "CNAME",  target = "srv01" },
   { name = "dev",                     ttl = 0,     type = "A",      target = "192.168.0.102" },
-  { name = "docker",                  ttl = 1800,  type = "CNAME",  target = "srv01" },
   { name = "fab-adeo.home",           ttl = 0,     type = "A",      target = "192.168.0.117" },
   { name = "fab-cgi.home",            ttl = 0,     type = "A",      target = "192.168.0.114" },
   { name = "fab-cgi.vpn",             ttl = 0,     type = "A",      target = "10.8.2.18" },
