@@ -11,7 +11,7 @@ nodeSelector:
 ingress:
   enabled: true
   annotations:
-    nginx.ingress.kubernetes.io/default-backend: nginx-errors
+    nginx.ingress.kubernetes.io/default-backend: default-backend
     nginx.ingress.kubernetes.io/proxy-body-size: 2g
   hosts:
     - host: "services.crespel.me"

@@ -12,13 +12,9 @@ ingress:
   enabled: true
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    nginx.ingress.kubernetes.io/default-backend: nginx-errors
+    nginx.ingress.kubernetes.io/default-backend: default-backend
     nginx.ingress.kubernetes.io/proxy-body-size: 300m
   hosts:
-    - host: "fabien.crespel.me"
-      paths:
-        - path: "/"
-          pathType: ImplementationSpecific
     - host: "files.crespel.me"
       paths:
         - path: "/"
@@ -31,7 +27,6 @@ ingress:
     - secretName: apache-tls
       hosts:
         - "docker.crespel.me"
-        - "fabien.crespel.me"
         - "files.crespel.me"
         - "services.crespel.me"
 
@@ -51,11 +46,6 @@ volumes:
       type: DirectoryOrCreate
 
 vhosts:
-  fabien.conf: |
-    <VirtualHost _default_:8080>
-      ServerName fabien.crespel.me
-      Redirect / https://www.doyoubuzz.com/fabien-crespel
-    </VirtualHost>
   files.conf: |
     <VirtualHost _default_:8080>
       ServerName files.crespel.me

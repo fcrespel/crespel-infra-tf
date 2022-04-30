@@ -83,6 +83,15 @@ resource "helm_release" "web_backups" {
   }
 }
 
+// Default backend
+resource "helm_release" "web_default_backend" {
+  name      = "default-backend"
+  chart     = "${path.module}/web/charts/default-backend"
+  namespace = kubernetes_namespace.web_ns.metadata[0].name
+
+  values = [file("${path.module}/web/values/default-backend.yaml")]
+}
+
 // Apache web server
 resource "helm_release" "web_apache" {
   name      = "apache"
@@ -260,15 +269,6 @@ resource "helm_release" "web_nexus" {
   namespace = kubernetes_namespace.web_ns.metadata[0].name
 
   values = [file("${path.module}/web/values/nexus.yaml")]
-}
-
-// Nginx error pages
-resource "helm_release" "web_nginx_errors" {
-  name      = "nginx-errors"
-  chart     = "${path.module}/web/charts/nginx-errors"
-  namespace = kubernetes_namespace.web_ns.metadata[0].name
-
-  values = [file("${path.module}/web/values/nginx-errors.yaml")]
 }
 
 // PHP server

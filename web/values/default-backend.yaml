@@ -1,0 +1,23 @@
+fullnameOverride: default-backend
+
+nodeSelector:
+  server-role-web: "true"
+  domain-crespel-me: "true"
+
+ingress:
+  enabled: true
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/server-snippet: |
+      if ($host = 'fabien.crespel.me') {
+        rewrite ^/(?!.well-known/)(.*)$ https://www.doyoubuzz.com/fabien-crespel/$1 redirect;
+      }
+  hosts:
+    - host: "fabien.crespel.me"
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - secretName: default-backend-tls
+      hosts:
+        - "fabien.crespel.me"
