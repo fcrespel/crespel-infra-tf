@@ -104,7 +104,6 @@ uptime_check_urls = [
   "https://blogs.crespel.me/",
   "https://cloud.crespel.me/",
   "https://files.crespel.me/",
-  "https://karaplan.crespel.me/actuator/health",
-  "https://services.crespel.me/",
+  "https://karaplan.crespel.me/actuator/health"
 ]
 uptime_check_notification_email = "webmaster@crespel.me"
