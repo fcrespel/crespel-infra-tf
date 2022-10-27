@@ -100,10 +100,10 @@ web_namespace = "domain-crespel-me"
 #web_wordpress_nonce_salt = "toComplete"
 
 # Uptime checks
-uptime_check_urls = [
-  "https://blogs.crespel.me/",
-  "https://cloud.crespel.me/",
-  "https://files.crespel.me/",
-  "https://karaplan.crespel.me/actuator/health"
-]
+#uptime_check_urls = [
+#  "https://blogs.crespel.me/",
+#  "https://cloud.crespel.me/",
+#  "https://files.crespel.me/",
+#  "https://karaplan.crespel.me/actuator/health"
+#]
 uptime_check_notification_email = "webmaster@crespel.me"
