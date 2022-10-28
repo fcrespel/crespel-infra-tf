@@ -16,6 +16,12 @@ os_region = "GRA"
 gcp_project_id = "crespel-me"
 gcp_region = "europe-west1"
 
+# Grafana provider
+grafana_url = "https://fabinfra.grafana.net/"
+#grafana_auth = "toComplete"
+grafana_sm_url = "https://synthetic-monitoring-api.grafana.net"
+#grafana_sm_access_token = "toComplete"
+
 # Kubernetes provider
 k8s_host = "https://k8s-master.vpn.fabinfra.net:6443"
 #k8s_client_cert = "toComplete"
@@ -100,10 +106,9 @@ web_namespace = "domain-crespel-me"
 #web_wordpress_nonce_salt = "toComplete"
 
 # Uptime checks
-#uptime_check_urls = [
-#  "https://blogs.crespel.me/",
-#  "https://cloud.crespel.me/",
-#  "https://files.crespel.me/",
-#  "https://karaplan.crespel.me/actuator/health"
-#]
-uptime_check_notification_email = "webmaster@crespel.me"
+uptime_check_urls = [
+ "https://blogs.crespel.me/",
+ "https://cloud.crespel.me/",
+ "https://files.crespel.me/",
+ "https://karaplan.crespel.me/actuator/health"
+]
