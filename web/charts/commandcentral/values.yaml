@@ -6,10 +6,10 @@ replicaCount: 1
 strategy: Recreate
 
 image:
-  repository: store/softwareag/commandcentral-server
+  repository: softwareag/commandcentral-server
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 10.5
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""

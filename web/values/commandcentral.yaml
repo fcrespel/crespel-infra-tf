@@ -9,16 +9,17 @@ ingress:
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: HTTPS
     nginx.ingress.kubernetes.io/default-backend: default-backend
+    nginx.ingress.kubernetes.io/use-regex: "true"
   hosts:
     - host: "services.crespel.me"
       paths:
         - path: "/cce"
           pathType: ImplementationSpecific
           servicePort: 8091
-        - path: "/webm105"
+        - path: "/products-.*"
           pathType: ImplementationSpecific
           servicePort: 8993
-        - path: "/fix-webm105-updates"
+        - path: "/fix-.*"
           pathType: ImplementationSpecific
           servicePort: 8993
   tls:
@@ -30,18 +31,18 @@ volumes:
   cce:
     conf:
       hostPath:
-        path: /home/domains/crespel.me/sag/profiles/CCE/configuration
+        path: /home/domains/crespel.me/sag/CCE/configuration
         type: DirectoryOrCreate
     data:
       hostPath:
-        path: /home/domains/crespel.me/sag/profiles/CCE/data
+        path: /home/domains/crespel.me/sag/CCE/data
         type: DirectoryOrCreate
   spm:
     conf:
       hostPath:
-        path: /home/domains/crespel.me/sag/profiles/SPM/configuration
+        path: /home/domains/crespel.me/sag/SPM/configuration
         type: DirectoryOrCreate
     data:
       hostPath:
-        path: /home/domains/crespel.me/sag/profiles/SPM/data
+        path: /home/domains/crespel.me/sag/SPM/data
         type: DirectoryOrCreate
