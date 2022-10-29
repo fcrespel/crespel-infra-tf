@@ -23,9 +23,6 @@ ingress:
       hosts:
         - "services.crespel.me"
 
-env:
-  NEXUS_CONTEXT: nexus
-
 volumes:
   data:
     hostPath:

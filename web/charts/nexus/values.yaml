@@ -78,8 +78,8 @@ tolerations: []
 
 affinity: {}
 
-env: {}
-  # NEXUS_CONTEXT: nexus
+env:
+  NEXUS_CONTEXT: nexus
 
 volumes:
   data: {}
