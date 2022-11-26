@@ -7,9 +7,9 @@ strategy: RollingUpdate
 
 image:
   repository: ghcr.io/fab-infra/php-fpm
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 7.4-opensuse15
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""

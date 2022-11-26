@@ -1,5 +1,8 @@
 fullnameOverride: php
 
+image:
+  tag: 7.4-opensuse15-20221126-1447-7b58fc4
+
 podSecurityContext:
   runAsUser: 1003
   runAsGroup: 1004
