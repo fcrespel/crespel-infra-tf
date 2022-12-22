@@ -19,10 +19,8 @@ schedules:
 
 env:
   BACKUP_BACKEND: multi
-  BACKUP_BACKENDS: swift,gcs,ftp
+  BACKUP_BACKENDS: swift,gcs
   BACKUP_GCS_BUCKET: crespel-me-backups
-  BACKUP_FTP_HOST: ftpback-rbx2-155.ovh.net
-  BACKUP_FTP_DIR: crespel.me
   BACKUP_SYNC_BACKENDS: swift,gcs
   BACKUP_SYNC_ARGS: pcs:nextcloud gcs:crespel-me-nextcloud
   MYSQL_HOST: mysql-slave
