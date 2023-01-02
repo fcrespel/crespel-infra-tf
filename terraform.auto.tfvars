@@ -60,7 +60,7 @@ dns_records = [
   { name = "march2016._domainkey",    ttl = 0,     type = "DKIM",   target = "k=rsa;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwvjrMuYA4hkI0TMzk6h4Hec06Unn/qZUxf4YnR5OWkCYrlIJZXuOUIsYZMXTiXCEhPdO6JktOcdVcUyB8UdhGLv7PoMShG+Kb9zsfqOtLJ3dfzJuaBsoV0BEi4yLqXPTNqbzE4YtxynC11MfPrtxwIYmJ5p4S2RMztBTZC5g/1PoQ2UWk/NphEzO6iA4Bbtas1OD+44Moa1OYMbi3YZrmEn1WTfrWodunAYE92Usoj+kpSiBqhYPS/r8iQMOsRZOznDZhxG7VIYGU5xq+Ah0hpWoU/Nvs79LBP0pgC7vyCRXec18Q7Ix3t7WaYOZv5/GfhbcWREM0wVAsEQYjVp9cwIDAQAB;t=s;" },
   { name = "oculus.home",             ttl = 0,     type = "A",      target = "192.168.0.119" },
   { name = "services",                ttl = 1800,  type = "CNAME",  target = "srv01" },
-  { name = "srv01",                   ttl = 1800,  type = "CNAME",  target = "k8s.fabinfra.net." },
+  { name = "srv01",                   ttl = 1800,  type = "CNAME",  target = "k8s-ingress.fabinfra.net." },
   { name = "vpn",                     ttl = 1800,  type = "CNAME",  target = "vpn.fabinfra.net." },
   { name = "www",                     ttl = 1800,  type = "CNAME",  target = "srv01" },
 ]
