@@ -1,7 +1,7 @@
 fullnameOverride: backups
 
 image:
-  tag: opensuse15-20221126-1420-a55c8a8
+  tag: opensuse15-20230319-0306-4fde429
 
 podSecurityContext:
   runAsUser: 1003
@@ -21,6 +21,9 @@ env:
   BACKUP_BACKEND: multi
   BACKUP_BACKENDS: swift,gcs
   BACKUP_GCS_BUCKET: crespel-me-backups
+  BACKUP_S3_BUCKET: crespel-me-backups
+  BACKUP_S3_PROVIDER: OVH
+  BACKUP_S3_REGION: rbx
   BACKUP_SYNC_BACKENDS: swift,gcs
   BACKUP_SYNC_ARGS: pcs:nextcloud gcs:crespel-me-nextcloud
   MYSQL_HOST: mysql-slave
