@@ -187,11 +187,12 @@ variable "web_nextcloud_db_password" {
   description = "Nextcloud database password"
   sensitive   = true
 }
-variable "web_nextcloud_swift_username" {
-  description = "Nextcloud OpenStack Swift object store username"
+variable "web_nextcloud_s3_access_key_id" {
+  description = "Nextcloud S3 Access Key ID"
+  sensitive   = true
 }
-variable "web_nextcloud_swift_password" {
-  description = "Nextcloud OpenStack Swift object store password"
+variable "web_nextcloud_s3_secret_access_key" {
+  description = "Nextcloud S3 Secret Access Key"
   sensitive   = true
 }
 variable "web_wordpress_db_username" {

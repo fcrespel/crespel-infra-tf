@@ -24,8 +24,8 @@ env:
   BACKUP_S3_BUCKET: crespel-me-backups
   BACKUP_S3_PROVIDER: OVH
   BACKUP_S3_REGION: rbx
-  BACKUP_SYNC_BACKENDS: swift,gcs
-  BACKUP_SYNC_ARGS: pcs:nextcloud gcs:crespel-me-nextcloud
+  BACKUP_SYNC_BACKENDS: s3,gcs
+  BACKUP_SYNC_ARGS: s3:crespel-me-nextcloud gcs:crespel-me-nextcloud
   MYSQL_HOST: mysql-slave
 
 volumes:

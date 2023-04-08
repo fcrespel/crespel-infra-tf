@@ -253,12 +253,12 @@ resource "helm_release" "web_nextcloud" {
     value = var.web_nextcloud_db_password
   }
   set_sensitive {
-    name  = "env.OBJECTSTORE_SWIFT_USER_NAME"
-    value = var.web_nextcloud_swift_username
+    name  = "env.OBJECTSTORE_S3_KEY"
+    value = var.web_nextcloud_s3_access_key_id
   }
   set_sensitive {
-    name  = "env.OBJECTSTORE_SWIFT_USER_PASSWORD"
-    value = var.web_nextcloud_swift_password
+    name  = "env.OBJECTSTORE_S3_SECRET"
+    value = var.web_nextcloud_s3_secret_access_key
   }
 }
 
