@@ -33,6 +33,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args: ['--save', '300', '1']
           ports:
             - name: tcp
               containerPort: 6379
@@ -48,12 +49,12 @@ spec:
             periodSeconds: 10
             timeoutSeconds: 10
             exec:
-              command: ['/usr/bin/redis-cli', 'ping']
+              command: ['/usr/local/bin/redis-cli', 'ping']
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- if .Values.volumes.data }}
           volumeMounts:
-            - mountPath: /var/lib/redis/default
+            - mountPath: /data
               name: data
           {{- end }}
       {{- with .Values.nodeSelector }}

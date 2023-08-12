@@ -1,8 +1,5 @@
 fullnameOverride: redis
 
-image:
-  tag: 6.2-opensuse15-20221126-1418-c6f80d4
-
 podSecurityContext:
   runAsUser: 1003
   runAsGroup: 1004
@@ -14,5 +11,5 @@ nodeSelector:
 volumes:
   data:
     hostPath:
-      path: /home/domains/crespel.me/redis
+      path: /home/domains/crespel.me/apps/redis
       type: DirectoryOrCreate
