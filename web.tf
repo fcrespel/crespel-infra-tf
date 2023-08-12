@@ -271,15 +271,6 @@ resource "helm_release" "web_nexus" {
   values = [file("${path.module}/web/values/nexus.yaml")]
 }
 
-// PHP server
-resource "helm_release" "web_php" {
-  name      = "php"
-  chart     = "${path.module}/web/charts/php"
-  namespace = kubernetes_namespace.web_ns.metadata[0].name
-
-  values = [file("${path.module}/web/values/php.yaml")]
-}
-
 // phpMyAdmin
 resource "helm_release" "web_phpmyadmin" {
   name      = "phpmyadmin"
