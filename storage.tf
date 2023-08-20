@@ -11,14 +11,14 @@ resource "google_storage_bucket" "gcs_bucket_project" {
 resource "google_storage_bucket" "gcs_bucket_backups" {
   name                        = "${var.gcp_project_id}-backups"
   project                     = var.gcp_project_id
-  location                    = "europe-west1"
+  location                    = var.gcp_region
   storage_class               = "COLDLINE"
   uniform_bucket_level_access = true
 }
 resource "google_storage_bucket" "gcs_bucket_nextcloud" {
   name                        = "${var.gcp_project_id}-nextcloud"
   project                     = var.gcp_project_id
-  location                    = "europe-west1"
+  location                    = var.gcp_region
   storage_class               = "COLDLINE"
   uniform_bucket_level_access = true
 }
