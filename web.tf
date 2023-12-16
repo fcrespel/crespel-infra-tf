@@ -101,28 +101,6 @@ resource "helm_release" "web_apache" {
   values = [file("${path.module}/web/values/apache.yaml")]
 }
 
-// Command Central
-resource "helm_release" "web_commandcentral" {
-  name      = "commandcentral"
-  chart     = "${path.module}/web/charts/commandcentral"
-  namespace = kubernetes_namespace.web_ns.metadata[0].name
-
-  values = [file("${path.module}/web/values/commandcentral.yaml")]
-
-  set_sensitive {
-    name  = "secrets.admin.password"
-    value = var.web_commandcentral_admin_password
-  }
-  set_sensitive {
-    name  = "secrets.repo.username"
-    value = var.web_commandcentral_repo_username
-  }
-  set_sensitive {
-    name  = "secrets.repo.password"
-    value = var.web_commandcentral_repo_password
-  }
-}
-
 // KaraPlan
 resource "helm_release" "web_karaplan" {
   name      = "karaplan"

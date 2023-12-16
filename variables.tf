@@ -118,17 +118,6 @@ variable "web_backups_mysql_password" {
   description = "MySQL password for backups"
   sensitive   = true
 }
-variable "web_commandcentral_admin_password" {
-  description = "Command Central admin user password"
-  sensitive   = true
-}
-variable "web_commandcentral_repo_username" {
-  description = "Command Central repository user name"
-}
-variable "web_commandcentral_repo_password" {
-  description = "Command Central repository user password"
-  sensitive   = true
-}
 variable "web_karaplan_db_username" {
   description = "KaraPlan database user name"
 }
