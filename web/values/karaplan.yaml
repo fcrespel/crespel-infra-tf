@@ -1,7 +1,7 @@
 fullnameOverride: karaplan
 
 image:
-  tag: master-20231203-2304-f58aa4e
+  tag: master-20231230-1744-6ee6398
 
 podSecurityContext:
   runAsUser: 1003
@@ -29,6 +29,3 @@ ingress:
 env:
   JAVA_TOOL_OPTIONS: "-Xms512m -Xmx1024m -Xverify:none -XX:+TieredCompilation -XX:TieredStopAtLevel=1"
   SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/karaplan?useSSL=false&serverTimezone=Europe/Paris"
-  SPRING_JPA_DATABASEPLATFORM: "org.hibernate.dialect.MySQL5InnoDBDialect"
-  SPRING_REDIS_HOST: "redis"
-  SPRING_SESSION_STORETYPE: "redis"
