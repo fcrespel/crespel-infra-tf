@@ -240,15 +240,6 @@ resource "helm_release" "web_nextcloud" {
   }
 }
 
-// Nexus repository manager
-resource "helm_release" "web_nexus" {
-  name      = "nexus"
-  chart     = "${path.module}/web/charts/nexus"
-  namespace = kubernetes_namespace.web_ns.metadata[0].name
-
-  values = [file("${path.module}/web/values/nexus.yaml")]
-}
-
 // phpMyAdmin
 resource "helm_release" "web_phpmyadmin" {
   name      = "phpmyadmin"
