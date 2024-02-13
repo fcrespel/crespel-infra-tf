@@ -42,6 +42,8 @@ env:
     /* Additional wp-config.php settings */
     define( 'DISABLE_WP_CRON', true );
     define( 'WP_AUTO_UPDATE_CORE', false );
+    define( 'WP_REDIS_HOST', 'redis' );
+    define( 'WP_REDIS_DATABASE', 1 );
     /* WPMU */
     define( 'WP_ALLOW_MULTISITE', true );
     define( 'MULTISITE', true );
