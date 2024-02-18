@@ -46,6 +46,8 @@ dns_records = [
   { name = "fab-adeo.home",           ttl = 300,   type = "A",      target = "192.168.0.117" },
   { name = "fab-cgi.home",            ttl = 300,   type = "A",      target = "192.168.0.114" },
   { name = "fab-cgi.vpn",             ttl = 300,   type = "A",      target = "10.8.2.18" },
+  { name = "fab-precision3580.home",  ttl = 300,   type = "A",      target = "192.168.0.118" },
+  { name = "fab-precision3580.vpn",   ttl = 300,   type = "A",      target = "10.8.2.10" },
   { name = "fab-precision7530.home",  ttl = 300,   type = "A",      target = "192.168.0.112" },
   { name = "fab-precision7530.vpn",   ttl = 300,   type = "A",      target = "10.8.2.14" },
   { name = "fabien",                  ttl = 1800,  type = "CNAME",  target = "srv01" },
