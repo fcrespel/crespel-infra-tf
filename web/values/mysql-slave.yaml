@@ -15,6 +15,8 @@ config:
     expire_logs_days = 7
     log-bin = mysql-bin
     max_allowed_packet = 67108864
+    relay-log = relay-bin
+    relay-log-index = relay-bin.index
     server-id = 2
     read-only
 
