@@ -103,6 +103,7 @@ web_namespace = "domain-crespel-me"
 uptime_check_urls = [
  "https://blogs.crespel.me/",
  "https://cloud.crespel.me/",
- "https://files.crespel.me/",
  "https://karaplan.crespel.me/actuator/health"
 ]
+uptime_frequency = 120000
+uptime_timeout = 10000
