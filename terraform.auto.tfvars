@@ -105,5 +105,5 @@ uptime_check_urls = [
  "https://cloud.crespel.me/",
  "https://karaplan.crespel.me/actuator/health"
 ]
-uptime_frequency = 120000
+uptime_frequency = 300000
 uptime_timeout = 10000
