@@ -11,5 +11,11 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+    {{- if .Values.notify_push.enabled }}
+    - port: {{ .Values.notify_push.port }}
+      targetPort: notify-push
+      protocol: TCP
+      name: notify-push
+    {{- end }}
   selector:
     {{- include "nextcloud.selectorLabels" . | nindent 4 }}

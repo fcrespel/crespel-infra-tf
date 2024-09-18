@@ -56,6 +56,22 @@ spec:
               serviceName: {{ $fullName }}
               servicePort: {{ $svcPort }}
               {{- end }}
+          {{- if $.Values.notify_push.enabled }}
+          - path: {{ trimSuffix "/" .path }}/push
+            {{- if and .pathType (semverCompare ">=1.18-0" $.Capabilities.KubeVersion.GitVersion) }}
+            pathType: {{ .pathType }}
+            {{- end }}
+            backend:
+              {{- if semverCompare ">=1.19-0" $.Capabilities.KubeVersion.GitVersion }}
+              service:
+                name: {{ $fullName }}
+                port:
+                  name: notify-push
+              {{- else }}
+              serviceName: {{ $fullName }}
+              servicePort: notify-push
+              {{- end }}
+          {{- end }}
           {{- end }}
     {{- end }}
 {{- end }}

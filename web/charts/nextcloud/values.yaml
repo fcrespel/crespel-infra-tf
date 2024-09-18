@@ -86,6 +86,11 @@ cron:
   enabled: true
   schedule: "*/5 * * * *"
 
+notify_push:
+  enabled: false
+  port: 7867
+  resources: {}
+
 volumes:
   config: {}
     # hostPath:
