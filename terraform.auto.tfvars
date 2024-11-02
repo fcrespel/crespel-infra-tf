@@ -52,6 +52,7 @@ dns_records = [
   { name = "fab-precision7530.vpn",   ttl = 300,   type = "A",      target = "10.8.2.14" },
   { name = "fabien",                  ttl = 1800,  type = "CNAME",  target = "srv01" },
   { name = "files",                   ttl = 1800,  type = "CNAME",  target = "srv01" },
+  { name = "homeassistant",           ttl = 1800,  type = "CNAME",  target = "srv01" },
   { name = "jean-laptop.vpn",         ttl = 300,   type = "A",      target = "10.8.2.30" },
   { name = "karaplan",                ttl = 1800,  type = "CNAME",  target = "srv01" },
   { name = "march2016._domainkey",    ttl = 3600,  type = "DKIM",   target = "k=rsa;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwvjrMuYA4hkI0TMzk6h4Hec06Unn/qZUxf4YnR5OWkCYrlIJZXuOUIsYZMXTiXCEhPdO6JktOcdVcUyB8UdhGLv7PoMShG+Kb9zsfqOtLJ3dfzJuaBsoV0BEi4yLqXPTNqbzE4YtxynC11MfPrtxwIYmJ5p4S2RMztBTZC5g/1PoQ2UWk/NphEzO6iA4Bbtas1OD+44Moa1OYMbi3YZrmEn1WTfrWodunAYE92Usoj+kpSiBqhYPS/r8iQMOsRZOznDZhxG7VIYGU5xq+Ah0hpWoU/Nvs79LBP0pgC7vyCRXec18Q7Ix3t7WaYOZv5/GfhbcWREM0wVAsEQYjVp9cwIDAQAB;t=s;" },
