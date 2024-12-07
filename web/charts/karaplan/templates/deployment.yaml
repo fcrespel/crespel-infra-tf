@@ -38,6 +38,11 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
+          env:
+            - name: HOST_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
           {{- if .Values.env }}
           envFrom:
             - secretRef:

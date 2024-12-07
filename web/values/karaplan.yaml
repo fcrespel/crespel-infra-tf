@@ -1,7 +1,7 @@
 fullnameOverride: karaplan
 
 image:
-  tag: master-20241001-1836-a59b7ac
+  tag: master-20241205-2258-33d3cb3
 
 podSecurityContext:
   runAsUser: 1003
@@ -29,3 +29,5 @@ ingress:
 env:
   JAVA_TOOL_OPTIONS: "-Xms512m -Xmx1024m -Xverify:none -XX:+TieredCompilation -XX:TieredStopAtLevel=1"
   SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/karaplan?useSSL=false&serverTimezone=Europe/Paris"
+  OTEL_EXPORTER_OTLP_ENDPOINT: "http://${HOST_IP}:4318"
+  OTEL_SDK_DISABLED: "false"
