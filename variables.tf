@@ -129,13 +129,6 @@ variable "web_karaplan_google_oauth_clientsecret" {
   description = "KaraPlan Google OAuth 2.0 client secret"
   sensitive   = true
 }
-variable "web_karaplan_facebook_oauth_clientid" {
-  description = "KaraPlan Facebook OAuth 2.0 client ID"
-}
-variable "web_karaplan_facebook_oauth_clientsecret" {
-  description = "KaraPlan Facebook OAuth 2.0 client secret"
-  sensitive   = true
-}
 variable "web_karaplan_github_oauth_clientid" {
   description = "KaraPlan GitHub OAuth 2.0 client ID"
 }

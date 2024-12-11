@@ -126,14 +126,6 @@ resource "helm_release" "web_karaplan" {
     value = var.web_karaplan_google_oauth_clientsecret
   }
   set_sensitive {
-    name  = "env.SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_FACEBOOK_CLIENTID"
-    value = var.web_karaplan_facebook_oauth_clientid
-  }
-  set_sensitive {
-    name  = "env.SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_FACEBOOK_CLIENTSECRET"
-    value = var.web_karaplan_facebook_oauth_clientsecret
-  }
-  set_sensitive {
     name  = "env.SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GITHUB_CLIENTID"
     value = var.web_karaplan_github_oauth_clientid
   }
