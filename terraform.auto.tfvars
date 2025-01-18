@@ -4,6 +4,12 @@ ovh_endpoint = "ovh-eu"
 #ovh_application_secret = "toComplete"
 #ovh_consumer_key = "toComplete"
 
+# OVH S3 AWS provider
+ovh_s3_endpoint = "https://s3.rbx.io.cloud.ovh.net"
+ovh_s3_region = "rbx"
+#ovh_s3_access_key = "toComplete"
+#ovh_s3_secret_key = "toComplete"
+
 # OpenStack provider
 os_auth_url = "https://auth.cloud.ovh.net/v3/"
 os_region = "GRA"
@@ -62,6 +68,9 @@ dns_records = [
   { name = "vpn",                     ttl = 1800,  type = "CNAME",  target = "vpn.fabinfra.net." },
   { name = "www",                     ttl = 1800,  type = "CNAME",  target = "srv01" },
 ]
+
+# Storage
+storage_bucket_prefix = "crespel-me"
 
 # Web
 web_namespace = "domain-crespel-me"

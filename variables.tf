@@ -15,6 +15,22 @@ variable "ovh_consumer_key" {
   sensitive   = true
 }
 
+// OVH S3 AWS provider
+variable "ovh_s3_endpoint" {
+  description = "OVH S3 API endpoint"
+}
+variable "ovh_s3_region" {
+  description = "OVH S3 region"
+}
+variable "ovh_s3_access_key" {
+  description = "OVH S3 access key"
+  sensitive   = true
+}
+variable "ovh_s3_secret_key" {
+  description = "OVH S3 secret key"
+  sensitive   = true
+}
+
 // OpenStack provider
 variable "os_auth_url" {
   description = "OpenStack authentication URL"
@@ -86,6 +102,11 @@ variable "dns_records" {
     target = string
   }))
   description = "DNS records"
+}
+
+// Storage
+variable "storage_bucket_prefix" {
+  description = "Storage buckets prefix"
 }
 
 // Web
