@@ -3,14 +3,6 @@ resource "aws_s3_bucket" "s3_bucket" {
   for_each = toset(var.storage_bucket_names)
   bucket   = "${var.storage_bucket_prefix}-${each.value}"
 }
-moved {
-  from = aws_s3_bucket.s3_bucket_backups
-  to   = aws_s3_bucket.s3_bucket["backups"]
-}
-moved {
-  from = aws_s3_bucket.s3_bucket_nextcloud
-  to   = aws_s3_bucket.s3_bucket["nextcloud"]
-}
 
 // GCS bucket for project files
 resource "google_storage_bucket" "gcs_bucket_project" {
@@ -29,14 +21,6 @@ resource "google_storage_bucket" "gcs_bucket" {
   location                    = var.gcp_region
   storage_class               = "COLDLINE"
   uniform_bucket_level_access = true
-}
-moved {
-  from = google_storage_bucket.gcs_bucket_backups
-  to   = google_storage_bucket.gcs_bucket["backups"]
-}
-moved {
-  from = google_storage_bucket.gcs_bucket_nextcloud
-  to   = google_storage_bucket.gcs_bucket["nextcloud"]
 }
 
 // Service Account with Storage Object Admin role
