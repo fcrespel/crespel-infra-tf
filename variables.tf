@@ -108,6 +108,11 @@ variable "dns_records" {
 variable "storage_bucket_prefix" {
   description = "Storage buckets prefix"
 }
+variable "storage_bucket_names" {
+  default     = []
+  type        = list(string)
+  description = "Storage bucket names (excluding prefix)"
+}
 
 // Web
 variable "web_namespace" {
