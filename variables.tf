@@ -239,6 +239,14 @@ variable "web_wordpress_nonce_salt" {
   description = "Wordpress nonce salt"
   sensitive   = true
 }
+variable "web_wordpress_s3_access_key_id" {
+  description = "Wordpress S3 Access Key ID"
+  sensitive   = true
+}
+variable "web_wordpress_s3_secret_access_key" {
+  description = "Wordpress S3 Secret Access Key"
+  sensitive   = true
+}
 
 // Uptime checks
 variable "uptime_check_urls" {

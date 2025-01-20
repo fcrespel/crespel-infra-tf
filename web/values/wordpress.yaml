@@ -42,8 +42,16 @@ env:
     /* Additional wp-config.php settings */
     define( 'DISABLE_WP_CRON', true );
     define( 'WP_AUTO_UPDATE_CORE', false );
+    /* Redis Object Cache */
     define( 'WP_REDIS_HOST', 'redis' );
     define( 'WP_REDIS_DATABASE', 1 );
+    /* Advanced Media Offloader */
+    define( 'ADVMO_DOS_KEY', getenv_docker('ADVMO_DOS_KEY', '') );
+    define( 'ADVMO_DOS_SECRET', getenv_docker('ADVMO_DOS_SECRET', '') );
+    define( 'ADVMO_DOS_ENDPOINT', 'https://s3.rbx.io.cloud.ovh.net' );
+    define( 'ADVMO_DOS_REGION', 'rbx');
+    define( 'ADVMO_DOS_BUCKET', 'crespel-me-blogs' );
+    define( 'ADVMO_DOS_DOMAIN', 'https://crespel-me-blogs.s3.rbx.io.cloud.ovh.net' );
     /* WPMU */
     define( 'WP_ALLOW_MULTISITE', true );
     define( 'MULTISITE', true );

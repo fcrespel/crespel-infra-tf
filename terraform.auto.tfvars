@@ -107,6 +107,8 @@ web_namespace = "domain-crespel-me"
 #web_wordpress_secure_auth_salt = "toComplete"
 #web_wordpress_logged_in_salt = "toComplete"
 #web_wordpress_nonce_salt = "toComplete"
+#web_wordpress_s3_access_key_id = "toComplete"
+#web_wordpress_s3_secret_access_key = "toComplete"
 
 # Uptime checks
 uptime_check_urls = [
