@@ -71,7 +71,7 @@ dns_records = [
 
 # Storage
 storage_bucket_prefix = "crespel-me"
-storage_bucket_names = [ "backups", "nextcloud" ]
+storage_bucket_names = [ "backups", "blogs", "nextcloud" ]
 
 # Web
 web_namespace = "domain-crespel-me"
