@@ -10,13 +10,6 @@ ovh_s3_region = "rbx"
 #ovh_s3_access_key = "toComplete"
 #ovh_s3_secret_key = "toComplete"
 
-# OpenStack provider
-os_auth_url = "https://auth.cloud.ovh.net/v3/"
-os_region = "GRA"
-#os_tenant = "toComplete"
-#os_username = "toComplete"
-#os_password = "toComplete"
-
 # GCP provider
 #gcp_credentials = "toComplete"
 gcp_project_id = "crespel-me"
