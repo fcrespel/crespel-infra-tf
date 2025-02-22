@@ -10,6 +10,8 @@ ingress:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/default-backend: default-backend
     nginx.ingress.kubernetes.io/proxy-body-size: 100m
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      rewrite ^/lesfrasserands/(.*)$ https://blogs.crespel.me/levieuxchalet/$1 redirect;
   hosts:
     - host: "crespel.me"
       paths:
