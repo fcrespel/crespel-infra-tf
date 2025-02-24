@@ -2,7 +2,7 @@ fullnameOverride: apache
 
 image:
   repository: ghcr.io/fab-infra/php-apache
-  tag: 8.2-opensuse15-20240720-2237-a010bfb
+  tag: 8.2-opensuse15-20250223-0313-8c1ec30
 
 podSecurityContext:
   runAsUser: 1003
