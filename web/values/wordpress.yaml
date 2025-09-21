@@ -64,6 +64,19 @@ env:
     define( 'BLOG_ID_CURRENT_SITE', 1 );
 
 config:
+  apache: |
+    LoadModule headers_module /usr/lib/apache2/modules/mod_headers.so
+    RewriteMap filesmap "txt:/var/www/html/wp-content/sources/filesmap.txt"
+  htaccess:
+    rules: |
+      # uploaded files
+      # RewriteRule ^([_0-9a-zA-Z-]+/)?files/(.+) wp-includes/ms-files.php?file=$2 [L]
+      RewriteRule ^([_0-9a-zA-Z-]+/)?files/(.+) wp-content/uploads/${filesmap:$1}$2 [L]
+    append: |
+      # Force download of GPX files
+      <FilesMatch "\.gpx$">
+          Header set Content-Disposition attachment
+      </FilesMatch>
   multisite: true
   php:
     max_execution_time: 300
