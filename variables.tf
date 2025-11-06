@@ -113,6 +113,16 @@ variable "web_backups_mysql_password" {
   description = "MySQL password for backups"
   sensitive   = true
 }
+variable "web_collabora_username" {
+  description = "Collabora Online user name"
+}
+variable "web_collabora_password" {
+  description = "Collabora Online user password"
+  sensitive   = true
+}
+variable "web_collabora_version" {
+  description = "Collabora Online Helm chart version"
+}
 variable "web_karaplan_db_username" {
   description = "KaraPlan database user name"
 }

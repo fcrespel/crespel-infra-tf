@@ -37,6 +37,7 @@ dns_records = [
   { name = "blog",                    ttl = 1800,  type = "CNAME",  target = "srv01" },
   { name = "blogs",                   ttl = 1800,  type = "CNAME",  target = "srv01" },
   { name = "cloud",                   ttl = 1800,  type = "CNAME",  target = "srv01" },
+  { name = "collabora",               ttl = 1800,  type = "CNAME",  target = "srv01" },
   { name = "dev",                     ttl = 300,   type = "A",      target = "192.168.0.102" },
   { name = "fab-adeo.home",           ttl = 300,   type = "A",      target = "192.168.0.117" },
   { name = "fab-cgi.home",            ttl = 300,   type = "A",      target = "192.168.0.114" },
@@ -70,6 +71,9 @@ web_namespace = "domain-crespel-me"
 #web_backups_s3_secret_access_key = "toComplete"
 #web_backups_mysql_username = "toComplete"
 #web_backups_mysql_password = "toComplete"
+#web_collabora_username = "toComplete"
+#web_collabora_password = "toComplete"
+web_collabora_version = "1.1.52"
 #web_karaplan_db_username = "toComplete"
 #web_karaplan_db_password = "toComplete"
 #web_karaplan_google_oauth_clientid = "toComplete"

@@ -101,6 +101,26 @@ resource "helm_release" "web_apache" {
   values = [file("${path.module}/web/values/apache.yaml")]
 }
 
+// Collabora Online
+resource "helm_release" "web_collabora" {
+  name       = "collabora"
+  repository = "https://collaboraonline.github.io/online/"
+  chart      = "collabora-online"
+  version    = var.web_collabora_version
+  namespace  = kubernetes_namespace.web_ns.metadata[0].name
+
+  values = [file("${path.module}/web/values/collabora.yaml")]
+
+  set_sensitive {
+    name  = "collabora.username"
+    value = var.web_collabora_username
+  }
+  set_sensitive {
+    name  = "collabora.password"
+    value = var.web_collabora_password
+  }
+}
+
 // KaraPlan
 resource "helm_release" "web_karaplan" {
   name      = "karaplan"
