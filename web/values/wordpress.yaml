@@ -14,19 +14,19 @@ ingress:
     - host: "crespel.me"
       paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
     - host: "blog.crespel.me"
       paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
     - host: "blogs.crespel.me"
       paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
     - host: "www.crespel.me"
       paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
   tls:
     - secretName: wordpress-tls
       hosts:

@@ -17,7 +17,7 @@ ingress:
     - host: "collabora.crespel.me"
       paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
   tls:
     - secretName: collabora-tls
       hosts:

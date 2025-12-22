@@ -16,7 +16,7 @@ ingress:
     - host: "cloud.crespel.me"
       paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
   tls:
     - secretName: nextcloud-tls
       hosts:

@@ -21,12 +21,12 @@ ingress:
   hosts:
     - host: "files.crespel.me"
       paths:
-        - path: "/"
-          pathType: ImplementationSpecific
+        - path: /
+          pathType: Prefix
     - host: "services.crespel.me"
       paths:
-        - path: "/"
-          pathType: ImplementationSpecific
+        - path: /
+          pathType: Prefix
   tls:
     - secretName: apache-tls
       hosts:

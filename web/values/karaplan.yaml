@@ -19,8 +19,8 @@ ingress:
   hosts:
     - host: "karaplan.crespel.me"
       paths:
-        - path: "/"
-          pathType: ImplementationSpecific
+        - path: /
+          pathType: Prefix
   tls:
     - secretName: karaplan-tls
       hosts:

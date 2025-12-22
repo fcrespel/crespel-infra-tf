@@ -16,7 +16,7 @@ ingress:
     - host: "fabien.crespel.me"
       paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
   tls:
     - secretName: default-backend-tls
       hosts:
