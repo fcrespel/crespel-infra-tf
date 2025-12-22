@@ -10,8 +10,6 @@ ingress:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/default-backend: default-backend
     nginx.ingress.kubernetes.io/proxy-body-size: 100m
-    nginx.ingress.kubernetes.io/configuration-snippet: |
-      rewrite ^/lesfrasserands/(.*)$ https://blogs.crespel.me/levieuxchalet/$1 redirect;
   hosts:
     - host: "crespel.me"
       paths:
@@ -72,6 +70,8 @@ config:
       # uploaded files
       # RewriteRule ^([_0-9a-zA-Z-]+/)?files/(.+) wp-includes/ms-files.php?file=$2 [L]
       RewriteRule ^([_0-9a-zA-Z-]+/)?files/(.+) wp-content/uploads/${filesmap:$1}$2 [L]
+      # redirects
+      RewriteRule ^lesfrasserands/(.*)$ levieuxchalet/$1 [R=301,L]
     append: |
       # Force download of GPX files
       <FilesMatch "\.gpx$">
