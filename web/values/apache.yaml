@@ -19,6 +19,10 @@ ingress:
     nginx.ingress.kubernetes.io/default-backend: default-backend
     nginx.ingress.kubernetes.io/proxy-body-size: 300m
   hosts:
+    - host: "fabien.crespel.me"
+      paths:
+        - path: /
+          pathType: Prefix
     - host: "files.crespel.me"
       paths:
         - path: /
@@ -30,6 +34,7 @@ ingress:
   tls:
     - secretName: apache-tls
       hosts:
+        - "fabien.crespel.me"
         - "files.crespel.me"
         - "services.crespel.me"
 
@@ -49,6 +54,11 @@ volumes:
       type: DirectoryOrCreate
 
 vhosts:
+  fabien.conf: |
+    <VirtualHost _default_:8080>
+      ServerName fabien.crespel.me
+      Redirect permanent / https://www.doyoubuzz.com/fabien-crespel/
+    </VirtualHost>
   files.conf: |
     <VirtualHost _default_:8080>
       ServerName files.crespel.me
