@@ -47,7 +47,7 @@ spec:
               service:
                 name: {{ include "nextcloud.fullname" $ }}
                 port:
-                  name: notify-push
+                  number: {{ $.Values.notify_push.port }}
           {{- end }}
           {{- end }}
     {{- end }}
