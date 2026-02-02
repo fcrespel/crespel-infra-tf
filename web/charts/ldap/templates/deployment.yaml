@@ -65,7 +65,7 @@ spec:
             periodSeconds: 10
             timeoutSeconds: 10
             exec:
-              command: ['/usr/bin/ldapwhoami', '-x', '-h', '127.0.0.1', '-p', '1389']
+              command: ['/usr/bin/ldapwhoami', '-x', '-H', 'ldap://127.0.0.1:1389']
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- if .Values.volumes.data }}
