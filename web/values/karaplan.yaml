@@ -1,7 +1,7 @@
 fullnameOverride: karaplan
 
 image:
-  tag: master-20260226-2049-4d55e91
+  tag: master-20260227-2145-72c436b
 
 podSecurityContext:
   runAsUser: 1003
