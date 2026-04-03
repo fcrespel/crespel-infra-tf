@@ -85,6 +85,24 @@ variable "storage_bucket_names" {
   type        = list(string)
   description = "Storage bucket names (excluding prefix)"
 }
+variable "storage_bucket_rules" {
+  default = {}
+  type = map(list(object({
+    id     = string
+    status = string
+    filter = optional(object({
+      prefix = string
+    }))
+    expiration = optional(object({
+      days = number
+    }))
+    transitions = optional(list(object({
+      days          = number
+      storage_class = string
+    })))
+  })))
+  description = "Storage bucket lifecycle rules (map of bucket name to list of rules)"
+}
 
 // Web
 variable "web_namespace" {

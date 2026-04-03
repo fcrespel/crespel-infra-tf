@@ -62,6 +62,32 @@ dns_records = [
 # Storage
 storage_bucket_prefix = "crespel-me"
 storage_bucket_names = [ "backups", "blogs", "nextcloud" ]
+storage_bucket_rules = {
+  "backups" = [
+    {
+      id: "30d-infrequent-access"
+      status: "enabled"
+      transitions: [
+        {
+          days: 30
+          storage_class: "STANDARD_IA"
+        }
+      ]
+    }
+  ]
+  "nextcloud" = [
+    {
+      id: "60d-infrequent-access"
+      status: "enabled"
+      transitions: [
+        {
+          days: 60
+          storage_class: "STANDARD_IA"
+        }
+      ]
+    }
+  ]
+}
 
 # Web
 web_namespace = "domain-crespel-me"
