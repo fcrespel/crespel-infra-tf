@@ -126,6 +126,7 @@ web_collabora_version = "1.1.52"
 #web_wordpress_secure_auth_salt = "toComplete"
 #web_wordpress_logged_in_salt = "toComplete"
 #web_wordpress_nonce_salt = "toComplete"
+#web_wordpress_akismet_api_key = "toComplete"
 #web_wordpress_s3_access_key_id = "toComplete"
 #web_wordpress_s3_secret_access_key = "toComplete"
 

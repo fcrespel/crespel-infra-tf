@@ -319,11 +319,15 @@ resource "helm_release" "web_wordpress" {
     value = var.web_wordpress_nonce_salt
   }
   set_sensitive {
-    name  = "env.ADVMO_DOS_KEY"
+    name  = "env.WPCOM_API_KEY"
+    value = var.web_wordpress_akismet_api_key
+  }
+  set_sensitive {
+    name  = "env.ADVMO_MINIO_KEY"
     value = var.web_wordpress_s3_access_key_id
   }
   set_sensitive {
-    name  = "env.ADVMO_DOS_SECRET"
+    name  = "env.ADVMO_MINIO_SECRET"
     value = var.web_wordpress_s3_secret_access_key
   }
 }

@@ -239,6 +239,10 @@ variable "web_wordpress_nonce_salt" {
   description = "Wordpress nonce salt"
   sensitive   = true
 }
+variable "web_wordpress_akismet_api_key" {
+  description = "Wordpress Akismet API key"
+  sensitive   = true
+}
 variable "web_wordpress_s3_access_key_id" {
   description = "Wordpress S3 Access Key ID"
   sensitive   = true
