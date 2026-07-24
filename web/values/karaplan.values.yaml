@@ -1,6 +1,7 @@
 fullnameOverride: karaplan
 
 image:
+  repository: ghcr.io/fcrespel/karaplan
   tag: master-20260428-2236-bf386bf
 
 podSecurityContext:

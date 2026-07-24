@@ -55,7 +55,7 @@ resource "helm_release" "web_backups" {
   chart     = "${path.module}/web/charts/backups"
   namespace = kubernetes_namespace.web_ns.metadata[0].name
 
-  values = [file("${path.module}/web/values/backups.yaml")]
+  values = [file("${path.module}/web/values/backups.values.yaml")]
 
   set_sensitive {
     name  = "secrets.gcs.sa"
@@ -89,7 +89,7 @@ resource "helm_release" "web_default_backend" {
   chart     = "${path.module}/web/charts/default-backend"
   namespace = kubernetes_namespace.web_ns.metadata[0].name
 
-  values = [file("${path.module}/web/values/default-backend.yaml")]
+  values = [file("${path.module}/web/values/default-backend.values.yaml")]
 }
 
 // Apache web server
@@ -98,7 +98,7 @@ resource "helm_release" "web_apache" {
   chart     = "${path.module}/web/charts/apache"
   namespace = kubernetes_namespace.web_ns.metadata[0].name
 
-  values = [file("${path.module}/web/values/apache.yaml")]
+  values = [file("${path.module}/web/values/apache.values.yaml")]
 }
 
 // Collabora Online
@@ -109,7 +109,7 @@ resource "helm_release" "web_collabora" {
   version    = var.web_collabora_version
   namespace  = kubernetes_namespace.web_ns.metadata[0].name
 
-  values = [file("${path.module}/web/values/collabora.yaml")]
+  values = [file("${path.module}/web/values/collabora.values.yaml")]
 
   set_sensitive {
     name  = "collabora.username"
@@ -127,7 +127,7 @@ resource "helm_release" "web_karaplan" {
   chart     = "${path.module}/web/charts/karaplan"
   namespace = kubernetes_namespace.web_ns.metadata[0].name
 
-  values = [file("${path.module}/web/values/karaplan.yaml")]
+  values = [file("${path.module}/web/values/karaplan.values.yaml")]
 
   set_sensitive {
     name  = "env.SPRING_DATASOURCE_USERNAME"
@@ -161,7 +161,7 @@ resource "helm_release" "web_ldap" {
   chart     = "${path.module}/web/charts/ldap"
   namespace = kubernetes_namespace.web_ns.metadata[0].name
 
-  values = [file("${path.module}/web/values/ldap.yaml")]
+  values = [file("${path.module}/web/values/ldap.values.yaml")]
 
   set_sensitive {
     name  = "secrets.root.password"
@@ -175,7 +175,7 @@ resource "helm_release" "web_mailserver" {
   chart     = "${path.module}/web/charts/mailserver"
   namespace = kubernetes_namespace.web_ns.metadata[0].name
 
-  values = [file("${path.module}/web/values/mailserver.yaml")]
+  values = [file("${path.module}/web/values/mailserver.values.yaml")]
 
   set_sensitive {
     name  = "dkim.config.privateKey"
@@ -189,7 +189,7 @@ resource "helm_release" "web_matomo" {
   chart     = "${path.module}/web/charts/matomo"
   namespace = kubernetes_namespace.web_ns.metadata[0].name
 
-  values = [file("${path.module}/web/values/matomo.yaml")]
+  values = [file("${path.module}/web/values/matomo.values.yaml")]
 
   set_sensitive {
     name  = "config.matomo.database.username"
@@ -211,7 +211,7 @@ resource "helm_release" "web_mysql" {
   chart     = "${path.module}/web/charts/mysql"
   namespace = kubernetes_namespace.web_ns.metadata[0].name
 
-  values = [file("${path.module}/web/values/mysql.yaml")]
+  values = [file("${path.module}/web/values/mysql.values.yaml")]
 
   set_sensitive {
     name  = "env.MYSQL_ROOT_PASSWORD"
@@ -223,7 +223,7 @@ resource "helm_release" "web_mysql_slave" {
   chart     = "${path.module}/web/charts/mysql"
   namespace = kubernetes_namespace.web_ns.metadata[0].name
 
-  values = [file("${path.module}/web/values/mysql-slave.yaml")]
+  values = [file("${path.module}/web/values/mysql-slave.values.yaml")]
 }
 
 // Nextcloud
@@ -232,7 +232,7 @@ resource "helm_release" "web_nextcloud" {
   chart     = "${path.module}/web/charts/nextcloud"
   namespace = kubernetes_namespace.web_ns.metadata[0].name
 
-  values = [file("${path.module}/web/values/nextcloud.yaml")]
+  values = [file("${path.module}/web/values/nextcloud.values.yaml")]
 
   set_sensitive {
     name  = "env.MYSQL_USER"
@@ -258,7 +258,7 @@ resource "helm_release" "web_phpmyadmin" {
   chart     = "${path.module}/web/charts/phpmyadmin"
   namespace = kubernetes_namespace.web_ns.metadata[0].name
 
-  values = [file("${path.module}/web/values/phpmyadmin.yaml")]
+  values = [file("${path.module}/web/values/phpmyadmin.values.yaml")]
 }
 
 // Redis cache server
@@ -267,7 +267,7 @@ resource "helm_release" "web_redis" {
   chart     = "${path.module}/web/charts/redis"
   namespace = kubernetes_namespace.web_ns.metadata[0].name
 
-  values = [file("${path.module}/web/values/redis.yaml")]
+  values = [file("${path.module}/web/values/redis.values.yaml")]
 }
 
 // Wordpress
@@ -276,7 +276,7 @@ resource "helm_release" "web_wordpress" {
   chart     = "${path.module}/web/charts/wordpress"
   namespace = kubernetes_namespace.web_ns.metadata[0].name
 
-  values = [file("${path.module}/web/values/wordpress.yaml")]
+  values = [file("${path.module}/web/values/wordpress.values.yaml")]
 
   set_sensitive {
     name  = "env.WORDPRESS_DB_USER"

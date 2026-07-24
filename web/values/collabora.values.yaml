@@ -1,5 +1,9 @@
 fullnameOverride: collabora
 
+image:
+  repository: docker.io/collabora/code
+  tag: "25.04.7.1.1"
+
 nodeSelector:
   server-role-web: "true"
   domain-crespel-me: "true"

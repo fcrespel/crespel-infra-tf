@@ -1,4 +1,8 @@
-fullnameOverride: mysql-slave
+fullnameOverride: mysql
+
+image:
+  repository: docker.io/mariadb
+  tag: "11.8.5"
 
 podSecurityContext:
   runAsUser: 1003
@@ -9,19 +13,16 @@ nodeSelector:
   domain-crespel-me: "true"
 
 config:
-  slave.cnf: |
+  master.cnf: |
     [mysqld]
     binlog_format = mixed
     expire_logs_days = 7
     log-bin = mysql-bin
     max_allowed_packet = 67108864
-    relay-log = relay-bin
-    relay-log-index = relay-bin.index
-    server-id = 2
-    read-only
+    server-id = 1
 
 volumes:
   data:
     hostPath:
-      path: /home/domains/crespel.me/mysql-slave
+      path: /home/domains/crespel.me/mysql
       type: DirectoryOrCreate
