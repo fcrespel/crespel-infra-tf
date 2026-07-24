@@ -2,7 +2,7 @@ fullnameOverride: mysql-slave
 
 image:
   repository: docker.io/mariadb
-  tag: "11.8.5"
+  tag: "12.3.2"
 
 podSecurityContext:
   runAsUser: 1003
