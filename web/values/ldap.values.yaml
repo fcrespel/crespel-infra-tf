@@ -1,6 +1,7 @@
 fullnameOverride: ldap
 
 image:
+  repository: ghcr.io/fab-infra/openldap
   tag: 2.6-opensuse16-20260201-0440-1bf90d8
 
 podSecurityContext:
