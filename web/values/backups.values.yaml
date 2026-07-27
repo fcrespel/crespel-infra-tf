@@ -12,22 +12,34 @@ nodeSelector:
   server-role-web: "true"
   domain-crespel-me: "true"
 
+backends:
+  gcs:
+    bucket: crespel-me-backups
+  s3:
+    provider: OVH
+    region: rbx
+    bucket: crespel-me-backups
+  swift:
+    container: backups
+
+backups:
+  files:
+    backends: swift,gcs
+  ldap:
+    backends: s3,gcs
+  mysql:
+    backends: s3,gcs
+    host: mysql-slave
+  sync:
+    backends: s3,gcs
+    args: |
+      s3:crespel-me-nextcloud gcs:crespel-me-nextcloud --checksum
+
 schedules:
-  files: "30 4 * * *"
+  files: "15 4 * * *"
   ldap: "0 4 * * *"
   mysql: "0 4 * * *"
-  sync: "0 4 * * *"
-
-env:
-  BACKUP_BACKEND: multi
-  BACKUP_BACKENDS: swift,gcs
-  BACKUP_GCS_BUCKET: crespel-me-backups
-  BACKUP_S3_BUCKET: crespel-me-backups
-  BACKUP_S3_PROVIDER: OVH
-  BACKUP_S3_REGION: rbx
-  BACKUP_SYNC_BACKENDS: s3,gcs
-  BACKUP_SYNC_ARGS: s3:crespel-me-nextcloud gcs:crespel-me-nextcloud --checksum
-  MYSQL_HOST: mysql-slave
+  sync: "30 4 * * *"
 
 volumes:
   domain:
