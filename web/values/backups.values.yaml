@@ -2,7 +2,7 @@ fullnameOverride: backups
 
 image:
   repository: ghcr.io/fab-infra/backuptools
-  tag:  opensuse16-20260728-1847-563bf6e
+  tag: opensuse16-20260728-1847-563bf6e
 
 podSecurityContext:
   runAsUser: 1003
@@ -33,6 +33,7 @@ backups:
   sync:
     backends: s3,gcs
     args: |
+      s3:crespel-me-backups/home/ gcs:crespel-me-backups/home/ --checksum
       s3:crespel-me-nextcloud gcs:crespel-me-nextcloud --checksum
 
 schedules:
