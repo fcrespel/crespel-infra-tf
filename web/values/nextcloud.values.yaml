@@ -2,7 +2,7 @@ fullnameOverride: nextcloud
 
 image:
   repository: docker.io/nextcloud
-  tag: "34.0.4"
+  tag: "35.0.2"
 
 nodeSelector:
   server-role-web: "true"
